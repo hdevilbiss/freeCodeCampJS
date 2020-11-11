@@ -99,3 +99,6 @@ function frankenSplice(arr1, arr2, n) {
   return localArr;
 }
 ```
+
+#### Flowchart of String.slice()
+![String.slice flowchart](String.slice.png)
