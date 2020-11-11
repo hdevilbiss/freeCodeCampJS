@@ -147,4 +147,73 @@ mutation(["Mary","aarmy"]);
 
 Let's look at the official solutions. I have a feeling that I could have used `forEach` and `slice` instead of using two separate `for` loops and `charAt`.
 
+## Solution 1
 
+Solution 1 is already so much simpler. Instead of using intermediate arrays, this function stores each word as strings in variables `test` and `target`. Oh! I didn't realize that `indexOf` is both a string AND an array method! I thought it was only for arrays.
+
+So, Solution 1 loops through each character in the test word, providing this character to the `indexOf` method uses on the target word. If `indexOf` returns -1 at any point, then `false` gets returned immediately.
+
+```JavaScript
+Procedural
+
+function mutation(arr) {
+  var test = arr[1].toLowerCase();
+  var target = arr[0].toLowerCase();
+  for (var i = 0; i < test.length; i++) {
+    if (target.indexOf(test[i]) < 0) return false;
+  }
+  return true;
+}
+```
+
+## Solution 2
+
+Solution 2 is fancier, using array method chaining on the second word, `arr[1]`.
+
+1. toLowerCase to make everything lower case, easier for comparison
+2. split the words into characters
+3. For every letter in arr[1], returns whether the lowercased version of arr[0] can find a non-negative indexOf that letter.
+
+```JavaScript
+Declarative
+
+function mutation(arr) {
+  return arr[1]
+    .toLowerCase()
+    .split("")
+    .every(function(letter) {
+      return arr[0].toLowerCase().indexOf(letter) != -1;
+    });
+}
+```
+
+## Solution 3
+
+Solution 3 uses recursion and the ternary operator. It even edits the parameters given to the `mutation` function: knowing that `mutation` accepts an array as the parameter, using [target, test] in the parameter list indicates that the first index of the array is referred to as `target`, and the second index of the array is referred to as `test`.
+
+`function mutation([ target, test ], i = 0) ...`
+
+`mutation(["hello","hey"]) => target = "hello", test = "hey"`
+
+### Breakdown
+
+1. Set both the target and test words to lowercase.
+2. Return an elaborate test statement which includes not only 1, but 2 ternary operators; one nested inside the other.
+  - First, test whether `i`, which is initialized as zero, is greater than or equal to `test.length`.
+  - If TRUE, meaning `i` has exceeded the length of the test string, then return true - the target string contains all the characters of the test string.
+  - If FALSE, meaning there are still characters left to test, then check ...
+    - whether the negation of using the `target.includes` method on the test character, `test[i]` returns `false`... `false` means that the target string does NOT include the test character, and so the function should return false.
+    - if the negation of `target.includes()` returns true, then it means that the target string contains the test character. At this point, the function makes a recursive call, providing both `target` and `test`, and incrementing the index, `i`, by 1.
+
+
+```JavaScript
+function mutation([ target, test ], i = 0) {
+  target = target.toLowerCase();
+  test = test.toLowerCase();
+  return i >= test.length
+    ? true
+    : !target.includes(test[i])
+      ? false
+      : mutation([ target, test ], i + 1);
+}
+```
