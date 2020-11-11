@@ -1,0 +1,66 @@
+PROMPT
+=======
+Reverse the provided string.
+
+You may need to turn the string into an array before you can reverse it.
+
+Your result must be a string.
+
+
+MY SOLUTION
+** WITH CONSOLE **
+============
+function reverseString(str) {
+  console.clear();
+  console.log("typeof \'"+str+"\': "+typeof str);
+  console.log("length of \'"+str+"\': "+str.length)
+  let strReversed = [];
+  for (let i = 0;i<str.length;i++) {
+    console.log(str[i]);
+    strReversed.unshift(str[i]);
+  }
+  console.dir(strReversed);
+  console.log(strReversed.toString());
+  strReversed = strReversed.toString();
+  console.log("typeof strReversed after toString: "+typeof strReversed);
+  const commaRegex = /,/g;
+  console.log(strReversed.replace(commaRegex,''));
+  strReversed=strReversed.replace(commaRegex,'');
+  return strReversed;
+}
+
+reverseString("hello");
+
+
+MY SOLUTION
+** SIMPLIFIED **
+============
+function reverseString(str) {
+  let strReversed = [];
+  for (let i = 0;i < str.length;i++) {
+    strReversed.unshift(str[i]);
+  }
+  return strReversed.toString().replace(/,/g,'');
+}
+
+reverseString("hello");
+
+
+
+SOLUTION 1
+===========
+function reverseString(str) {
+  for (var reversedStr = "", i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
+  }
+  return reversedStr;
+}
+
+SOLUTION 2
+===========
+function reverseString(str) {
+  return str
+    .split("")
+    .reverse()
+    .join("");
+}

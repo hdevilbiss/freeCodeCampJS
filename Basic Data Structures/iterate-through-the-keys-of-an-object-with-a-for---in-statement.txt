@@ -1,0 +1,30 @@
+PROMPT
+=======
+Use a for...in statement within this function to loop through the users object passed into the function and return the number of users whose online property is set to true. An example of a users object which could be passed to countOnline is shown below. Each user will have an online property with either a true or false value.
+
+
+MY SOLUTION
+============
+function countOnline(usersObj) {
+  let $count = 0;
+  for (let user in usersObj) {
+    //console.log(usersObj[user].online);
+    if (usersObj[user].online === true) {
+      $count++;
+    }
+  }
+  return $count;
+}
+
+var myObject = {
+  Hannah: {
+    online:true
+  },
+  Brandon: {
+    online:false
+  }
+}
+
+countOnline(myObject);
+
+

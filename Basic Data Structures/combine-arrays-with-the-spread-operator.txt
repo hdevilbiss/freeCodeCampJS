@@ -1,0 +1,19 @@
+Another huge advantage of the spread operator is the ability to combine arrays, or to insert all the elements of one array into another, at any index.
+
+let thatArray = ['basil', 'cilantro', ...thisArray, 'coriander'];
+
+Compare this to concatentation, which only allows to join arrays at the beginning and end indices.
+
+PROMPT
+=======
+Modify the function using the spread operator so that it returns the array ['learning', 'to', 'code', 'is', 'fun'].
+
+
+
+function spreadOut() {
+  let fragment = ['to', 'code'];
+  let sentence = ['learning',...fragment,"is","fun"]; // Change this line
+  return sentence;
+}
+
+console.log(spreadOut());

@@ -1,0 +1,23 @@
+5 % 2 = 1 because
+Math.floor(5 / 2) = 2 (Quotient)
+2 * 2 = 4
+5 - 4 = 1 (Remainder)
+
+Divide the numbers and remove the decimal (round down): this is the quotient.
+Multiply the bottom operand against the quotient, then subtract this from the top operand.
+
+6%3 = 0
+Math.floor(6/3) = 2
+3 * 2 = 6
+6 - 6 = 0
+
+
+11%3 = 2
+Math.floor(11/3) = 3
+3 * 3 = 9
+11 - 9 = 2
+
+13%3 = 1
+Math.floor(13/3) = 4
+3 * 4 = 12
+13 - 12 = 1

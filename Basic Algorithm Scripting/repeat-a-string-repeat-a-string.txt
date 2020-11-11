@@ -1,0 +1,45 @@
+PROMPT
+=======
+Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number.
+
+The built-in repeat() method should not be used.
+
+
+APPROACH
+=========
+I opted to use a for loop, using a separate string to hold the return value. This same approach could have also used a while() loop, with a manual decrementer (num--) and stop condition num > 0.
+
+Additionally, using recursion while decrementing num - 1 would have worked: return str + repeatStringNumTimes(str,num - 1). The breaking condition was num < 1 or num === 1.
+
+An event more precise approach is a one-line return statement, relying on the Conditional (ternary) operator, ?, to check whether num is greater than 0. If true, it uses the same recursion mentioned above, concatenating str to the decremented recursive function call. The false condition returns an empty string.
+`return num > 0 ? str + repeatStringNumTimes(str, num - 1) : ''`
+
+
+MY SOLUTION
+============
+/**
+ * repeatStringNumTimes
+ * @param string  : str, string to repeat
+ * @param integer : num, how many times
+ * @return string : str * num
+ */
+function repeatStringNumTimes(str, num) {
+  let $multiplied = '';
+
+  if (num <= 0) {
+    return '';
+  }
+  else if (isNaN(num) == false) {
+    for (let i = 0;i < num;i++) {
+      $multiplied += str;
+    }
+    console.log($multiplied);
+    return $multiplied;
+  }
+  else {
+    return '';
+  }
+}
+
+repeatStringNumTimes("abc", 3);
+repeatStringNumTimes("cereal",1);
