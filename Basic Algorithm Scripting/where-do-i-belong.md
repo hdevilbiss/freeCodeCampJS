@@ -90,6 +90,22 @@ getIndexToIns([3,2,1],4)
 getIndexToIns([],1)
 ```
 
+Oh man, I cannot believe how extra my solution was. I revisited this problem and solved it instantly with only three lines of code.
+
+1. Add `num` to `arr` using `push`
+2. Sort the array using `sort`.
+3. Return the `indexOf` of `num` within the sorted array.
+
+```JavaScript
+function getIndexToIns(arr, num) {
+  arr.push(num);
+  
+  arr.sort((a,b) => a - b);
+
+  return arr.indexOf(num);
+}
+```
+
 ## Official Solutions
 
 This exercise has SEVEN listed solutions!
