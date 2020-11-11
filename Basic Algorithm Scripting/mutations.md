@@ -86,9 +86,12 @@ function mutation(arr) {
 ## New Approach After Briefly Reading Hints
 
 1. Convert everything to lowercase.
-2. Loop through each character in `arr[1]` and check indexOf.
-3. If indexOf returns -1 at any point, return false.
+2. Create two for loops; push each character into new arrays, creating character arrays.
+3. For each character in the array for the second word, check `indexOf` in the first word.
 
+There's gotta be a better way than using two `for` loops, but let's just make something that works, first.
+
+Hey, we've got a winner!
 
 ```JavaScript
 /**
@@ -99,28 +102,49 @@ function mutation(arr) {
 function mutation(arr) {
   /**
    * Make everything lowercase
+   * Remember that toLowerCase is a string method
+   * Mutate that array!
    */
-  arr[0] = arr[0].toLowerCase();
-  arr[1] = arr[1].toLowerCase();
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].toLowerCase();
+  }
+  
   console.log(arr);
 
   /**
-   * Loop through all chars in arr[1]
-   * Check whether each char exists in arr[0]
+   * Make arrays of characters
    */
-  let result;
-  let word = arr[1];
-  console.log(word)
-  for (let i = 0; i < arr[1].length; i++) {
-    console.log(`arr[1].charAt(i):${arr[1].charAt(i)}`)
-    result = arr[0].indexOf(arr[1].charAt[i]) != -1;
-    console.log(result);
+  let firstArray = [];
+  let secondArray = [];
+
+  for (let i = 0; i < arr[0].length; i++) {
+    firstArray.push(arr[0].charAt(i));
   }
+
+  for (let i = 0; i < arr[1].length; i++) {
+    secondArray.push(arr[1].charAt(i));
+  }
+
+  console.log(firstArray,secondArray);
+  
+  let result = '';
+
+  for (let i = 0; i < secondArray.length; i++) {
+    result = firstArray.indexOf(secondArray[i]);
+    if (result == -1) {
+      return false;
+    }
+  }
+  return true;
+
 }
 
 mutation(["hello", "hey"]);
 mutation(["hello","Hello"]);
 mutation(["alien","line"]);
 mutation(["Mary","aarmy"]);
-
 ```
+
+Let's look at the official solutions. I have a feeling that I could have used `forEach` and `slice` instead of using two separate `for` loops and `charAt`.
+
+
