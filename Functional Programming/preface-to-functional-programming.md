@@ -39,3 +39,6 @@ The functions passed in, or returned, are known as *lambda*.
 
 > JavaScript offers many predefined methods that handle common tasks ... For example, instead of using the for loop mentioned above, you could call the map method which handles the details of iterating over an array.
 
+The issue with mutation is that it can make it harder to debug your programs when something goes wrong. Changes to function arguments or global parameters can contribute to the confusion.
+
+*... in functional programming, changing or altering things is called mutation, and the outcome is called a side effect*
