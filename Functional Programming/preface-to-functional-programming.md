@@ -34,3 +34,8 @@ Higher order functions either accept functions as arguments, or return functions
 ## Lambda
 
 The functions passed in, or returned, are known as *lambda*.
+
+## Declarative vs. Imperative
+
+> JavaScript offers many predefined methods that handle common tasks ... For example, instead of using the for loop mentioned above, you could call the map method which handles the details of iterating over an array.
+
