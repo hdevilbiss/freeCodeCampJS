@@ -47,3 +47,16 @@ The issue with mutation is that it can make it harder to debug your programs whe
 
 1. Create new variables instead of altering existing variables.
 2. Declare arguments for functions, and only operate on the arguments; leave the global object alone!
+
+## The map array method
+
+The `map` method is an iterator method which is used on array directly. It receives a function, known as a **callback**, which acts on each item in the array. It returns an array; the original array after having been called back upon. :)
+
+According to [freeCodeCamp.org](https://freecodecamp.org), the callback function may receive up to three arguments:
+
+1. the current element being processed,
+2. the index of the current element being processed, and
+3. the array on which `map` was called. 
+
+The `map` array method can be used to replace `for` loops, decreasing the syntactic overhead in code: simpler syntax means less likely to have syntax errors, right?
+
