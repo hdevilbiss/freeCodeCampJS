@@ -50,7 +50,11 @@ The issue with mutation is that it can make it harder to debug your programs whe
 
 ## The map array method
 
-The `map` method is an iterator method which is used on array directly. It receives a function, known as a **callback**, which acts on each item in the array. It returns an array; the original array after having been called back upon. :)
+The `map` method is an iterator method which is used on array directly. It receives a function, known as a **callback**, which acts on each item in the array.
+
+It returns an array; a copy of the original array, that has been mutated by the callback function. The return array will be the same length as the original array.
+
+Thankfully, the original array will not have been mutated. This means that `map` is a "pure" function.
 
 According to [freeCodeCamp.org](https://freecodecamp.org), the callback function may receive up to three arguments:
 
