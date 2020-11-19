@@ -64,3 +64,36 @@ According to [freeCodeCamp.org](https://freecodecamp.org), the callback function
 
 The `map` array method can be used to replace `for` loops, decreasing the syntactic overhead in code: simpler syntax means less likely to have syntax errors, right?
 
+## The filter array method
+
+The `filter` method is similar to the `map` method: it does not mutate the original array, and accepts the same arguments:
+
+1. the current element being processed,
+2. the index of the current element being processed, and
+3. the array on which filter was called.
+
+In its simplest form, the `filter` method uses the first argument and performs a simple conditional check on it.
+
+```javascript
+let sendSpamAboutMedicaid = (person) => `${person}, you may be eligible for Medicaid in the state of Michigan! Check now on MIBridges.gov`;
+
+let myArray = [
+    {name:"Harry",age:20},
+    {name:"Hannah",age:26},
+    {name:"Holly",age:10},
+    {name:"Harriet",age:65},
+    {name:"Heather",age:16},
+    {name:"Hazel",age:22}
+    ];
+
+/**
+ * Filter array by age >= 18 
+*/
+let filteredArray = myArray.filter(person => person.age > 18 && person.age <= 64)
+
+console.log(filteredArray);
+
+let mailingList = filteredArray.forEach((person) => sendSpamAboutMedicaid(person));
+```
+
+Unlike the `map` method, the `filter` method does *not* return an identically-lengthed array; it only returns values which pass the condition with truth.
