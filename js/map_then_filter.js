@@ -123,7 +123,7 @@ const filteredList = watchList.filter(movie => movie.imdbRating >= '8.0').map(mo
 
 // Only change code above this line
 
-console.log(filteredList);
+console.log('filtered movie list:',filteredList);
 
 /**
 
@@ -131,3 +131,23 @@ filteredList should equal
 [{"title": "Inception","rating": "8.8"},{"title": "Interstellar","rating": "8.6"},{"title": "The Dark Knight","rating": "9.0"},{"title": "Batman Begins","rating": "8.3"}].
 
 */
+
+let sendSpamAboutMedicaid = (person) => `${person}, you may be eligible for Medicaid in the state of Michigan! Check now on MIBridges.gov`;
+
+let myArray = [
+    {name:"Harry",age:20},
+    {name:"Hannah",age:26},
+    {name:"Holly",age:10},
+    {name:"Harriet",age:65},
+    {name:"Heather",age:16},
+    {name:"Hazel",age:22}
+    ];
+
+/**
+ * Filter array by age >= 18 
+*/
+let filteredArray = myArray.filter(person => person.age > 18 && person.age <= 64)
+
+console.log('All people ages 19=64:',filteredArray);
+
+filteredArray.forEach((person) => console.log(sendSpamAboutMedicaid(person.name)));
