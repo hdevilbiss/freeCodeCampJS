@@ -97,3 +97,41 @@ let mailingList = filteredArray.forEach((person) => sendSpamAboutMedicaid(person
 ```
 
 Unlike the `map` method, the `filter` method does *not* return an identically-lengthed array; it only returns values which pass the condition with truth.
+
+## Array Methods that do and do not mutate
+
+> Functional programming is all about creating and using non-mutating functions.
+
+### Slice vs. Splice
+
+Slice **does not** mutate the original array, returning a copy.
+
+Splice **does** mutate the original array.
+
+### Concatenation
+
+Concatenation **does not** mutate any arrays, returning a new array.
+
+### Pop, push, unshift, shift
+
+Pop, push, unshift, and shift all **do mutate** arrays.
+
+### Reduce
+
+The `reduce` method is similar to `filter`, `map`, and `forEach`. The `reduce` method iterates over each value in an array, applies a callback function, and returns 1 value.
+
+The callback function given to `reduce` may accept 4 arguments:
+
+1. Accumulator: the return value from the previous iteration
+2. Current element being processed
+3. Index of the current element being processed
+4. The original array on which `reduce` was called.
+
+The `reduce` method itself takes 2 parameters:
+
+1. The callback function
+2. Initial value for the accumulator; *if not set*, then ...
+
+> ... the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator
+
+Let's just try to see it in action.
