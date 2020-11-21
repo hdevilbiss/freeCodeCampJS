@@ -88,19 +88,6 @@ Here is the full return statement for cases where the index is less than the arr
 
 In cases where the index is greater than the array length, the value `arr` gets returned.
 
-```javascript
-return i < this.length
-  ? this.myMap(
-
-    callback, 
-
-    arr.concat(callback(this[i])),i + 1
-  
-  )
-
-  : arr;
-```
-
 #### Solution 3 Full Code
 
 ```javascript
