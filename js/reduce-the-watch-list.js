@@ -118,23 +118,27 @@ var watchList = [
  * 
  * reduce method
  * @param {Function} callback
- * @param {Integer} initial_value for the accumulator
+ * @param {Integer} initial_value for the accRatingumulator
  */
 function getRating(watchList){
+
   let count = 0;
-  let averageRating;
 
-  let totalRating = watchList.reduce((sum,currentMovie) => {
+  const reducer = (accRating,curMovie) => {
 
-    if (currentMovie["Director"] === 'Christopher Nolan') {
-      count++;
-      return sum + parseInt(currentMovie["imdbRating"]);
-    }
-  }, 0 );
+    return curMovie["Director"] === "Christopher Nolan"
+      ? (
+        accRating + parseInt(curMovie["imdbRating"]),
+        count++
+        )
+      : accRating;
 
-  console.log(count,totalRating);
+  };
 
-  averageRating = totalRating / count;
+  let averageRating = watchList.reduce(reducer,0);
+
+  console.log(`averageRating:${averageRating}`);
+  console.log(`count:${count}`);
 
   return averageRating;
 }
