@@ -98,7 +98,7 @@ let mailingList = filteredArray.forEach((person) => sendSpamAboutMedicaid(person
 
 Unlike the `map` method, the `filter` method does *not* return an identically-lengthed array; it only returns values which pass the condition with truth.
 
-## Array Methods that do and do not mutate
+## Array Mutation
 
 > Functional programming is all about creating and using non-mutating functions.
 
