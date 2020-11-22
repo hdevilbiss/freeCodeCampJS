@@ -129,7 +129,7 @@ function getRating(watchList){
 
     if (curMovie["Director"] === "Christopher Nolan") {
       count++;
-      let rating = parseInt(curMovie["imdbRating"]);
+      let rating = parseFloat(curMovie["imdbRating"]);
       return accRating + rating;
     }
     else {
