@@ -114,25 +114,35 @@ var watchList = [
 
 /**
  * getRating function
- * @param {Array} watchList
- * 
- * reduce method
- * @param {Function} callback
- * @param {Integer} initial_value for the accRatingumulator
+ * @param {Array} watchList array of movie objects
+ * @return {Integer} averageRating of all Christopher Nolan films
  */
 function getRating(watchList){
 
+  let count = 0;
+
   const reducer = (accRating,curMovie) => {
 
-    return curMovie["Director"] === "Christopher Nolan"
-      ? accRating + parseInt(curMovie["imdbRating"])
-      : accRating;
+    // return curMovie["Director"] === "Christopher Nolan"
+    //   ? accRating + parseInt(curMovie["imdbRating"])
+    //   : accRating;
 
+    if (curMovie["Director"] === "Christopher Nolan") {
+      count++;
+      let rating = parseInt(curMovie["imdbRating"]);
+      return accRating + rating;
+    }
+    else {
+      return accRating;
+    }
   };
 
-  let averageRating = watchList.reduce(reducer,0);
+  let accumulatedRating = watchList.reduce(reducer,0);
 
-  console.log(`averageRating:${averageRating}`);
+  console.log(`accumulatedRating:${accumulatedRating}`);
+  console.log(`count:${count}`);
+
+  let averageRating = accumulatedRating / count;
 
   return averageRating;
 }
