@@ -50,7 +50,7 @@ The issue with mutation is that it can make it harder to debug your programs whe
 
 ## The map array method
 
-The `map` method is an iterator method which is used on array directly. It receives a function, known as a **callback**, which acts on each item in the array.
+The `map` method is an iterator method which is used on an array directly. It receives a function, known as a **callback**, which acts on each item in the array.
 
 It returns an array; a copy of the original array, that has been mutated by the callback function. The return array will be the same length as the original array.
 
@@ -104,34 +104,39 @@ Unlike the `map` method, the `filter` method does *not* return an identically-le
 
 ### Slice vs. Splice
 
-Slice **does not** mutate the original array, returning a copy.
+✔️ **Slice** **does not** mutate the original array, returning a copy.
 
-Splice **does** mutate the original array.
+❗ **Splice** **does** mutate the original array.
 
 ### Concatenation
 
-Concatenation **does not** mutate any arrays, returning a new array.
+✔️ **Concatenation** **does not** mutate any arrays, returning a new array.
 
 ### Pop, push, unshift, shift
 
-Pop, push, unshift, and shift all **do mutate** arrays.
+❗ **Pop, push, unshift, and shift** all **do mutate** arrays.
 
 ### Reduce
 
-The `reduce` method is similar to `filter`, `map`, and `forEach`. The `reduce` method iterates over each value in an array, applies a callback function, and returns 1 value.
+The `reduce` method is similar to `filter`, `map`, and `forEach`.
 
-The callback function given to `reduce` may accept 4 arguments:
+The `reduce` method iterates over each value in an array, applies a callback function, and returns 1 value.
+
+The `reduce` method itself takes 2 parameters:
+
+1. The callback function
+2. Initial value for the accumulator; *if not set*, then ...
+    > ... the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator
+
+The callback function given 🎁 to the `reduce` method may accept 4 arguments:
 
 1. Accumulator: the return value from the previous iteration
 2. Current element being processed
 3. Index of the current element being processed
 4. The original array on which `reduce` was called.
 
-The `reduce` method itself takes 2 parameters:
+Hint hint: You can use destructuring on the parameters of the callback function to make your `reduce` method itself a functional program.
 
-1. The callback function
-2. Initial value for the accumulator; *if not set*, then ...
+#### Note about using destructuring cleverly
 
-> ... the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator
-
-Let's just try to see it in action.
+In the `watchList` exercise to get the average rating of all Christopher Nolan films, it was my first instinct to use a separate counter variable inside my function, but outside of the reduce method. However, [using an object as the accumulator](https://github.com/hdevilbiss/freeCodeCampJS/blob/master/Functional%20Programming/use-the-reduce-method-to-analyze-data.md#solution-3) means that you can accumulate more than one item in your `reduce` method.
