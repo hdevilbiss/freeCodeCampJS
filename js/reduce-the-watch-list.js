@@ -122,15 +122,10 @@ var watchList = [
  */
 function getRating(watchList){
 
-  let count = 0;
-
   const reducer = (accRating,curMovie) => {
 
     return curMovie["Director"] === "Christopher Nolan"
-      ? (
-        accRating + parseInt(curMovie["imdbRating"]),
-        count++
-        )
+      ? accRating + parseInt(curMovie["imdbRating"])
       : accRating;
 
   };
@@ -138,7 +133,6 @@ function getRating(watchList){
   let averageRating = watchList.reduce(reducer,0);
 
   console.log(`averageRating:${averageRating}`);
-  console.log(`count:${count}`);
 
   return averageRating;
 }
