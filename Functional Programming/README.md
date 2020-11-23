@@ -151,3 +151,16 @@ The `sort` method appears to be a mutating array which defaults to sorting an ar
 The `split` method is a String method which returns an array containing split pieces of the calling string. The `split` method expects an argument which can be a literal delimiter or a regular expression to match a variety of delimiters.
 
 Because strings are immutable in JavaScript, the `split` method does not mutate its parameter.
+
+### Join
+
+The `join` method can be used to add strings in an array into one string. It expects a delimiter as its argument.
+
+#### Example of Split with Join
+
+```javascript
+function sentensify(str) {
+  return str.split(/\s|,|-|\./).join(" ");
+}
+sentensify("May-the-force-be-with-you");
+```
