@@ -75,11 +75,10 @@ The `filter` method is similar to the `map` method: it does not mutate the origi
 In its simplest form, the `filter` method uses the first argument and performs a simple conditional check on it.
 
 ```javascript
-let sendSpamAboutMedicaid = (person) => `${person}, you may be eligible for Medicaid in the state of Michigan! Check now on MIBridges.gov`;
+let sendSpamAboutMedicaid = (person) => `${person}, you may be eligible for Medicaid.`;
 
 let myArray = [
     {name:"Harry",age:20},
-    {name:"Hannah",age:26},
     {name:"Holly",age:10},
     {name:"Harriet",age:65},
     {name:"Heather",age:16},
