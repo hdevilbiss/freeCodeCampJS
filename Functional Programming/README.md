@@ -139,3 +139,11 @@ Hint hint: You can use destructuring on the parameters of the callback function 
 #### Note about using destructuring cleverly
 
 In the `watchList` exercise to get the average rating of all Christopher Nolan films, it was my first instinct to use a separate counter variable inside my function, but outside of the reduce method. However, [using an object as the accumulator](https://github.com/hdevilbiss/freeCodeCampJS/blob/master/Functional%20Programming/use-the-reduce-method-to-analyze-data.md#solution-3) means that you can accumulate more than one item in your `reduce` method.
+
+### Sort
+
+The `sort` method appears to be a mutating array which defaults to sorting an array of characters by their respective Unicode values. The `sort` method expects a callback method as an argument.
+
+>  If `compareFunction(a,b)` returns a value greater than 0 for two elements `a` and `b`, then `b` will come before `a`. If `compareFunction(a,b)` returns a value equal to 0 for two elements `a` and `b`, then `a` and `b` will remain unchanged.
+
+
