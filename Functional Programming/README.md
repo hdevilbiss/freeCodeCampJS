@@ -146,4 +146,8 @@ The `sort` method appears to be a mutating array which defaults to sorting an ar
 
 >  If `compareFunction(a,b)` returns a value greater than 0 for two elements `a` and `b`, then `b` will come before `a`. If `compareFunction(a,b)` returns a value equal to 0 for two elements `a` and `b`, then `a` and `b` will remain unchanged.
 
+### Split
 
+The `split` method is a String method which returns an array containing split pieces of the calling string. The `split` method expects an argument which can be a literal delimiter or a regular expression to match a variety of delimiters.
+
+Because strings are immutable in JavaScript, the `split` method does not mutate its parameter.
