@@ -5,7 +5,21 @@
  */
 function urlSlug(title) {
 
-    return title.toLowerCase().split(/\s|,|-|\./).join("-");
+    let regex = /\s|,|-|\./;
+    let arr = title.toLowerCase().split(regex);
+
+    console.log(arr);
+
+    /**
+     * Remove empty entries
+     */
+    arr.forEach((val,idx,arr) => {
+        if (val === '') {
+            arr.splice(idx,1);
+        }
+    });
+
+    return arr.join("-");
 
 }
 
