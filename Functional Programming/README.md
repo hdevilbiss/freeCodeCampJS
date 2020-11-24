@@ -158,6 +158,8 @@ The `join` method can be used to add strings in an array into one string. It exp
 
 #### Example of Split with Join
 
+Split an array at all special characters, then join the entries in the array together using a single space.
+
 ```javascript
 function sentensify(str) {
   return str.split(/\s|,|-|\./).join(" ");
