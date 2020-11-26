@@ -177,3 +177,12 @@ let myArray = [900,10,34,1];
 console.log(myArray.every(num => num < 100>));//false
 console.log(myArray.every(num) => num > 0);//true
 ```
+
+### Array.some method
+
+The `some` method is extremely similar to `every`, except that it returns true if *any* value in the array fulfills the criterion(a).
+
+```javascript
+let myArray = [-1,1,-2,-3];
+console.log(myArray.some(val => val > 0));//true
+```
