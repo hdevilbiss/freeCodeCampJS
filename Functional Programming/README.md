@@ -166,3 +166,14 @@ function sentensify(str) {
 }
 sentensify("May-the-force-be-with-you");
 ```
+
+### Array.every method
+
+The `every` method which receives a callback function. It enacts the callback function on every value in the array, and if each value returns true, then `every` returns true; false otherwise.
+
+```javascript
+let myArray = [900,10,34,1];
+
+console.log(myArray.every(num => num < 100>));//false
+console.log(myArray.every(num) => num > 0);//true
+```
