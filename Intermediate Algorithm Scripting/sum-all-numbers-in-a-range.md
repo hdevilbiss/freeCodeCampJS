@@ -82,3 +82,18 @@ function sumAll([ first, last ] ) {
    : first;
 }
 ```
+
+#### Bugfix for Solution 4
+
+If you pass `undefined` into the recursive solution, this will break the function. Instead, a default array of [0,0] can be defined, meaning `sumAll` will return 0 if you give it undefined.
+
+This function will break if you give it a string.
+
+```javascript
+function sumAll([ first, last ] = [ 0, 0 ] ) {
+ const step = first - last < 0 ? 1 : -1;
+ return first !== last
+   ? first + sumAll([ first + step, last ])
+   : first;
+}
+```
