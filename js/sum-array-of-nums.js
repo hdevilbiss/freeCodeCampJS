@@ -5,14 +5,15 @@
  */
 const sumAll = (arr = []) => {
     let myArr = arr.map(val => val).sort((a,b) => a - b);
-    let sum = 0;
-  
-    return myArr.length > 0 
-      ? myArr[0] == myArr[1]
-        ? sum + myArr[0]
-        : sum + sumAll(myArr[1] - 1)
-      : myArr;
-  };
+
+    const reducer = (sum,curVal,originalArr) => {
+      
+    };
+
+    let sumArr = myArr.reduce(reducer,myArr[0]);
+
+    return sumArr;
+};
   
   /**
    * Tests for sumAll
