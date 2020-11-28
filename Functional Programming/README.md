@@ -186,3 +186,47 @@ The `some` method is extremely similar to `every`, except that it returns true i
 let myArray = [-1,1,-2,-3];
 console.log(myArray.some(val => val > 0));//true
 ```
+
+### Arity and Currying
+
+The **arity** of a function is the number of arguments that it receives.
+
+**Currying** a function is the process of reducing function arity from N to 1.
+
+A curried function has functions embedded inside of it.
+
+```javascript
+function uncurried(cumin,curryPowder,tikkaMasala) {
+  return cumin.concat(curryPowder,tikkaMasala);
+}
+
+function curried(cumin) {
+  return function(curryPowder) {
+    return function(tikkaMasala) {
+      return cumin.concat(curryPowder,tikkaMasala);
+    }
+  }
+}
+```
+
+#### Currying in ES6
+
+The above can be rewritten as such:
+
+```javascript
+const curried = cumin => curryPowder => tikkaMasala => cumin.concat(curryPowder,tikkaMasala);
+```
+
+#### Impartial Binding
+
+The `bind` method can be used on a function to apply only a portion of the arguments.
+
+```javascript
+function countThree(a,b,c) {
+  return a + b + c;
+}
+
+let myCount = countThree.bind(this,1,4);
+
+myCount(5);//returns 10
+```
