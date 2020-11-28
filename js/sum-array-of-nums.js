@@ -4,25 +4,37 @@
  * @return {Number} sum of all nums in between 2 nums
  */
 const sumAll = (arr = []) => {
-    let myArr = arr.map(val => val).sort((a,b) => a - b);
 
-    const reducer = (sum,curVal,originalArr) => {
-      
-    };
+  /**
+   * Add two numbers together
+   * To be used as param with Array.reduce
+   * @param {Number} accSum 
+   * @param {Number} curNum 
+   */
+  const reducer = (accSum = 0,curNum) => accSum + curNum;
+  
+  let myArr = arr.map(num => num).sort((a,b) => a - b);
+  let lowerNum = myArr.shift();
+  let higherNum = myArr.pop();
+  for (let i = lowerNum; i <= higherNum; i++) {
+    myArr.push(i);
+  }
+  let mySum = myArr.reduce(reducer,0);
+  
+  
 
-    let sumArr = myArr.reduce(reducer,myArr[0]);
-
-    return sumArr;
+  
+  return mySum;
 };
   
-  /**
-   * Tests for sumAll
-   */
-  let sortedArr = [1,4];//10
-  let undefArr = undefined;
-  let unsortedArr = [10,5];//38
-  
-  console.log(sumAll(sortedArr));
-  console.log(sumAll(undefArr));
-  console.log(sumAll(unsortedArr));
+/**
+ * Tests for sumAll
+*/
+let sortedArr = [1,4];//10
+let undefArr = undefined;
+let unsortedArr = [10,5];//45
+
+console.log(sumAll(sortedArr));
+console.log(sumAll(undefArr));
+console.log(sumAll(unsortedArr));
   
