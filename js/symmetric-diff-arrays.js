@@ -12,7 +12,7 @@ const diffArray = (arr1,arr2) => {
 
     // Filter the combined values
     newArr = joinedArr.filter(val => {
-        return ((arr1.includes(val) && !arr2.includes(val)) || (!arr1.includes(val) && arr2.includes(val)));
+        return (!arr1.includes(val) || !arr2.includes(val));
     })
 
     return newArr;
