@@ -174,7 +174,7 @@ The `every` method which receives a callback function. It enacts the callback fu
 ```javascript
 let myArray = [900,10,34,1];
 
-console.log(myArray.every(num => num < 100>));//false
+console.log(myArray.every(num => num < 100));//false
 console.log(myArray.every(num) => num > 0);//true
 ```
 
