@@ -9,6 +9,10 @@ function destroyer(arr) {
     }
     return arr;
 }
-  
+
+/**
+ * Tests for destroyer
+ */
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+destroyer(['cat','bat','mat','tat','what'],'what');
   
