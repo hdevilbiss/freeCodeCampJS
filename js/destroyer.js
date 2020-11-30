@@ -4,14 +4,20 @@
  * @return {Array} arr but minus vals from arguments object
  */
 function destroyer(arr) {
-    arr.filter(val => {
-        for (let i = 1; i < arguments.length; i++) {
-            val !== arguments[i]
-                ? console.log(`true, ${val} !== ${arguments[i]}`)
-                : console.log(`false, ${val} == ${arguments[i]}`);
-        }
+    let newArr = [];
+    let testArr = [];
+
+    for (let i = 1; i < arguments.length; i++) {
+        testArr.push(arguments[i]);
+    }
+
+    newArr = arr.filter(val => {
+        return !testArr.includes(val);
     });
-    console.log(arr);
+
+    console.log(newArr);
+
+    return newArr;
 }
 
 /**
