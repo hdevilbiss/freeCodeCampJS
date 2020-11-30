@@ -21,3 +21,8 @@ If you want to contribute for whatever reason, then
 1. View this repo on GitHub, then click on the Fork icon to create your own copy.
 2. Make some commits on your copy of the repo.
 3. Make a pull request into my copy of the repo.
+
+#### Want to test out the JavaScript?
+
+1. Be able to use `node` from your code editor's terminal; for example, install Node using [nvm](https://github.com/nvm-sh/nvm).
+2. Run `node <path/to/js/file.js>`. For example, `node js/wherefore-art-thou.js`
