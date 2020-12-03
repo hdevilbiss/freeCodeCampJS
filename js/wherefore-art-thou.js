@@ -5,29 +5,17 @@
  * @return {Array} array of matching objects
  */
 const whatIsInAName = (collection = [],source = {}) => {
-    let newArr = [];
+    let sourceKeys = Object.keys(source);
 
-    for (let i = 0; i < collection.length; i++) {
-        console.log(collection[i]);
-        console.log(source);
+    return collection.filter(obj => {
+        for (let i = 0; i < sourceKeys.length; i++) {
 
-        let keysToCheck = Object.keys(source);
-        let mismatches = [];
-
-        keysToCheck.forEach(key => {
-
-            if (!collection[i].hasOwnProperty(key) || collection[i][key] !== source[key]) {
-                mismatches.push('f');
+            if (!obj.hasOwnProperty(sourceKeys[i]) || obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
+                return false;
             }
-
-        });
-
-        if (mismatches.length === 0) {
-            newArr.push(collection[i]);
         }
-    }
-
-    return newArr;
+        return true;
+    });
 };
   
 
