@@ -6,11 +6,12 @@
  */
 const whatIsInAName = (collection,source) => {
     let newArr = [];
-    collection.forEach(obj => {
+    collection.forEach((obj,idx) => {
+        console.log(idx,obj);
         for (let key in obj) {
-            if ( source[key] === obj[key] ) {
-                newArr.push(obj)
-            }
+            console.log('obj:',key,obj[key]);
+            console.log('source:',key,source[key]);
+            console.log('match?',obj[key] === source[key]);
         }
     });
     return newArr;
