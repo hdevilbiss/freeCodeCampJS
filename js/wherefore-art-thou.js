@@ -4,7 +4,7 @@
  * @param {Object} source object to find in collection
  * @return {Array} array of matching objects
  */
-const whatIsInAName = (collection,source) => {
+const whatIsInAName = (collection = [],source = {}) => {
     let newArr = [];
 
     for (let i = 0; i < collection.length; i++) {
@@ -37,7 +37,7 @@ const whatIsInAName = (collection,source) => {
  * @param {Array} result expected test result
  * @return {String} pass or fail
  */
-const checker = (test,result) => {
+const checker = (test = [],result = []) => {
     if (test.length !== result.length) {
         return "FAIL";
     }
