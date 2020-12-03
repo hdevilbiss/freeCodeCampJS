@@ -7,7 +7,25 @@
 const whatIsInAName = (collection,source) => {
     let newArr = [];
 
+    for (let i = 0; i < collection.length; i++) {
+        console.log(collection[i]);
+        console.log(source);
 
+        let keysToCheck = Object.keys(source);
+        let mismatches = [];
+
+        keysToCheck.forEach(key => {
+
+            if (!collection[i].hasOwnProperty(key) || collection[i][key] !== source[key]) {
+                mismatches.push('f');
+            }
+
+        });
+
+        if (mismatches.length === 0) {
+            newArr.push(collection[i]);
+        }
+    }
 
     return newArr;
 };
