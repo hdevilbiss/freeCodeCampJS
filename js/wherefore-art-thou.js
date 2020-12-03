@@ -7,26 +7,25 @@
 const whatIsInAName = (collection,source) => {
     let newArr = [];
 
+    for (let i = 0; i < collection.length; i++) {
+        console.log(collection[i]);
+        console.log(source);
 
-    collection.forEach((obj,idx) => {
+        let keysToCheck = Object.keys(source);
         let mismatches = [];
 
-        const sourceKeys = Object.keys(source);
+        keysToCheck.forEach(key => {
 
-        sourceKeys.forEach(key => {
-
-            console.log(obj)
-
-            if (!obj.hasOwnProperty(key) || obj[key] !== source[key]) {
-
+            if (!collection[i].hasOwnProperty(key) || collection[i][key] !== source[key]) {
                 mismatches.push('f');
-
             }
 
         });
 
-        if (mismatches.length === 0) newArr.push(obj[idx]);
-    });
+        if (mismatches.length === 0) {
+            newArr.push(collection[i]);
+        }
+    }
 
     return newArr;
 };
