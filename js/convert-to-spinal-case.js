@@ -23,9 +23,21 @@ const spinalCase = (str) => {
 }
 
 /**
- * testArr
- * an array containing strings,
- * and their expected results from spinalCase
+ * checker
+ * @param {String} result actual test result
+ * @param {String} expectation expected test result
+ * @return {String} pass or fail
+ */
+const checker = (result = '',expectation = '') => {
+    if (result.length !== expectation.length) {
+        return "FAIL";
+    }
+
+    return result === expectation ? "PASS" : "FAIL";
+}
+
+/**
+ * Tests for spinalCase
  */
 const testArr = [
     {
@@ -53,7 +65,23 @@ const testArr = [
 let resArr = [];
 
 testArr.forEach((obj) => {
-    resArr.push(spinalCase(obj["str"]) === obj["exp"] ? "PASS" : "FAIL");
+    resArr.push(spinalCase(obj.str) === obj.res ? "PASS" : "FAIL");
 });
 
-resArr.forEach(result => console.log(result));
+const str1 = "This Is Spinal Tap";
+const str2 = "thisIsSpinalTap";
+const str3 = "TheAndyGriffith_Show";
+const str4 = "Teletubbies say Eh-oh";
+const str5 = "AllThe-small Things";
+
+let expectation1 = "this-is-spinal-tap";
+let expectation2 = "this-is-spinal-tap";
+let expectation3 = "the-andy-griffith-show";
+
+let result1 = spinalCase(str1);
+let result2 = spinalCase(str2);
+let result3 = spinalCase(str3);
+
+console.log(checker(result1,expectation1));
+console.log(checker(result2,expectation2));
+console.log(checker(result3,expectation3));
