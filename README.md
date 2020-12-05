@@ -8,6 +8,18 @@ Learn to code with [freeCodeCamp.org](https://freecodecamp.org)
 
 I created this repo, because I want to track my progress with freeCodeCamp, and because I just plain enjoy writing about code. Most of the content is Markdown or Text files, but occasionally, I will throw a [js script](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/js) or [flowchart image](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/images) in the top layer of the project.
 
+### Note about posting on the FCC forum
+
+When posting code to the freeCodeCamp forum, it should use markdown formatting and a `[details]` block.
+
+[details]
+
+```javascript
+(() => console.log("Hello, world"))();
+```
+
+[/details]
+
 ### String.slice Flowchart
 
 This graphic was created from my understanding of the Mozilla developer docs on the [String.slice method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice#Syntax).
