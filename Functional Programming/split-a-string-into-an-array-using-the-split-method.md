@@ -11,10 +11,10 @@ Using regex to spot all white spaces and rogue punctuation.
 ```javascript
 /**
  * splitify
- * @param {string} which is something to split apart
+ * @param {string} str to split apart
  * @return {Array} of the split pieces
  */
-function splitify(str = '') {
+function splitify(str = "") {
   return str.split(/\s|,|-|\./);
 }
 
