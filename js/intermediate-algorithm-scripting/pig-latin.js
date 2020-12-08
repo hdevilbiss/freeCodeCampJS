@@ -5,39 +5,14 @@
  */
 const translatePigLatin = (str) => {
     let startsWithVowelRegex = /^[aeiouy]/;
-    let startsWithNotAVowelRegex = /^[^aeiouy]{1,}/;
+    let getConsonantsRegex = /^[^aeiouy]{1,}/;
     let justVowelsRegex = /[aeiou]/;
-    let newStr = '';
     
-    if ( startsWithVowelRegex.test(str) === true ) {
-        newStr = str.concat('way')
-    }
-    else {
-        let strOfStartingConsonants = '';
-        let startingConsonantLength = 0;
-        let strAsArray = str.split('');
-        let arrOfVowels = [];
-
-        strOfStartingConsonants = str.match(startsWithNotAVowelRegex)[0];
-        startingConsonantLength = strOfStartingConsonants.length;
-        console.log(`strOfStartingConsonants:${strOfStartingConsonants}`)
-
-        strAsArray.forEach(letter => {
-            if (justVowelsRegex.test(letter) === true) arrOfVowels.push(letter)
-        });
-
-        if (arrOfVowels.length === 0) {
-            newStr = str.concat('ay')
-        }
-        else {
-            newStr = newStr.concat(str.substring(startingConsonantLength),strOfStartingConsonants,'ay');
-        }
-    }
-    
-    console.log(`str:${str}`);
-    console.log(`newStr:${newStr}`);
-    
-    return newStr;
+    return startsWithVowelRegex.test(str) === true
+        ? str.concat('way')
+        : justVowelsRegex.test(str) === false
+            ? str.concat('ay')
+            : str.substring(str.match(getConsonantsRegex)[0].length).concat(str.match(getConsonantsRegex)[0],'ay')
 }
 
 console.log(translatePigLatin("consonant") === "onsonantcay")
