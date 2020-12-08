@@ -5,7 +5,7 @@
  */
 const translatePigLatin = (str) => {
     let startsWithVowelRegex = /^[aeiouy]/;
-    let getConsonantsRegex = /^[^aeiouy]{1,}/;
+    let getConsonantsRegex = /^[^aeiouy]+/;
     let justVowelsRegex = /[aeiou]/;
     
     return startsWithVowelRegex.test(str) === true
