@@ -8,9 +8,11 @@ const translatePigLatin = (str) => {
 
     let newStr = '';
 
+    
+
     vowelRegex.test(str) === true
         ? newStr = str.concat('way')
-        : console.log(str)
+        : newStr = str.concat(str,'ay');
 
     console.log(`newStr:${newStr}`)
 }
