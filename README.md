@@ -51,6 +51,8 @@ There were a few core principles to functional programming outlined in the [free
 
 We will learn how to break JavaScript in small, testable parts.
 
+Just to be redundant, let's say it in another way.
+
 Functions can be:
 
 1. Isolated (No state dependence).
@@ -61,9 +63,9 @@ Functions can be:
 
 Callbacks are functions that get passed to another function to decide its outcome. For example, a callback function may be passed to a `filter` method to decide how to filter an array.
 
-## First Order ("Class") Functions
+## First Class Functions
 
-All JavaScript functions are first-class functions. First-class functions can be:
+All JavaScript functions are first-class functions. First class functions can be:
 
 - Assigned to a variable
 - Passed to another function
@@ -72,6 +74,8 @@ All JavaScript functions are first-class functions. First-class functions can be
 ## Higher Order Functions
 
 Higher order functions either accept functions as arguments, or return functions.
+
+![Diagram to determine when a function is a higher order function](images/is-it-a-higher-fcn-person.jpg)
 
 ## Lambda
 
@@ -192,6 +196,8 @@ In the `watchList` exercise to get the average rating of all Christopher Nolan f
 The `sort` method appears to be a mutating array which defaults to sorting an array of characters by their respective Unicode values. The `sort` method expects a callback method as an argument.
 
 > If `compareFunction(a,b)` returns a value greater than 0 for two elements `a` and `b`, then `b` will come before `a`. If `compareFunction(a,b)` returns a value equal to 0 for two elements `a` and `b`, then `a` and `b` will remain unchanged.
+
+![flowchart showing Array.sort only changing order when the comparison of two values is greater than 0](images/Array.sort.png)
 
 ### Split
 
