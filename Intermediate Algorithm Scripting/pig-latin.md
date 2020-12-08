@@ -4,11 +4,12 @@ This oneway was a bit ickytray! I solved it at first using three different regul
 
 First, I'll explain how the messy solution works. After that, I'll try to simplify it.
 
-## Rules
+## Rules and Assumptions
 
 - If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add "ay" to it.
 - If a word begins with a vowel, just add "way" at the end.
 - If a word begins with a consonant cluster, but does not contain a vowel, then just add "ay" to the end.
+- Input strings are guaranteed to be English words in all lowercase.
 
 ### Original Solution
 
@@ -39,7 +40,7 @@ First, I'll explain how the messy solution works. After that, I'll try to simpli
  */
 const translatePigLatin = (str) => {
   let startsWithVowelRegex = /^[aeiouy]/;
-  let startsWithNotAVowelRegex = /^[^aeiouy]{1,}/;
+  let startsWithNotAVowelRegex = /^[^aeiouy]+/;
   let justVowelsRegex = /[aeiou]/;
   let newStr = "";
 
@@ -75,17 +76,26 @@ const translatePigLatin = (str) => {
 
   return newStr;
 };
-
-console.log(translatePigLatin("consonant") === "onsonantcay");
-console.log(translatePigLatin("california") === "aliforniacay");
-console.log(translatePigLatin("algorithm") === "algorithmway");
-console.log(translatePigLatin("glove") === "oveglay");
-console.log(translatePigLatin("schwartz") === "artzschway");
-console.log(translatePigLatin("rhythm") === "rhythmay");
 ```
 
 ### Optimized Solution
 
-```javascript
+In the optimized solution, I removed the return variable, and instead used a return statement containing nested ternary operators.
 
+The only variables kept were the regex variables.
+
+```javascript
+const translatePigLatin = (str) => {
+  let startsWithVowelRegex = /^[aeiouy]/;
+  let getConsonantsRegex = /^[^aeiouy]{1,}/;
+  let justVowelsRegex = /[aeiou]/;
+
+  return startsWithVowelRegex.test(str) === true
+    ? str.concat("way")
+    : justVowelsRegex.test(str) === false
+    ? str.concat("ay")
+    : str
+        .substring(str.match(getConsonantsRegex)[0].length)
+        .concat(str.match(getConsonantsRegex)[0], "ay");
+};
 ```
