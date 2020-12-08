@@ -1,6 +1,8 @@
 # Intermediate Algorithm Scripting: Pig Latin
 
-This one way a bit tricky! I solved it at first using three different regular expressions, nest `if` statements, and multiple intermediary variables.
+This oneway was a bit ickytray! I solved it at first using three different regular expressions, nest `if` statements, and multiple intermediary variables. Messy, but it works!
+
+First, I'll explain how the messy solution works. After that, I'll try to simplify it.
 
 ## Rules
 
@@ -9,6 +11,25 @@ This one way a bit tricky! I solved it at first using three different regular ex
 - If a word begins with a consonant cluster, but does not contain a vowel, then just add "ay" to the end.
 
 ### Original Solution
+
+1. Create three regular expression variables to check whether a string:
+   1. Starts with a vowel: `aeiouy`
+   1. Starts with 1 or more consonants.
+   1. Has any regular vowels (not y).
+      _For this exercise, y was not considered a vowel unless at the beginning of a sentence._
+1. First, test whether the string begins with a vowel. If true, then simply add on "way" to the end of the return string.
+1. For strings starting with consonants, several additional helper variables were created.
+   1. A string to hold the consonant or consonant cluster at the beginning of the string.
+   1. An integer to remember how long the consonant cluster is.
+   1. An array containing each letter in the string.
+   1. An empty array to hold vowels.
+1. Next, the consonant clusters at the beginning of the string gets pulled out using the `match` regex method.
+1. The length of this cluster gets determined.
+1. Each letter in the array gets checked; if it is a vowel, then add it to the vowel array.
+1. Finally, the length of the array of vowels gets checked.
+   - If no vowels, then simply add "ay" to the end of the string.
+   - If there are vowels, then the `substring` methods gets used on the string with only one parameter: the length of the consonant cluster. This targets the part of the string which is not the consonant cluster.
+   - Next, this partial string gets concatenated to the the consonant cluster, followed by "ay".
 
 ```javascript
 /**
