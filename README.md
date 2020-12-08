@@ -20,12 +20,6 @@ When posting code to the freeCodeCamp forum, it should use markdown formatting a
 
 [/details]
 
-### String.slice Flowchart
-
-This graphic was created from my understanding of the Mozilla developer docs on the [String.slice method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice#Syntax).
-
-![String slice flowchart](./images/String.slice.png)
-
 #### Want to contribute?
 
 If you want to contribute for whatever reason, then
@@ -157,6 +151,10 @@ Unlike the `map` method, the `filter` method does _not_ return an identically-le
 ✔️ **Slice** **does not** mutate the original array, returning a copy.
 
 ❗ **Splice** **does** mutate the original array.
+
+This graphic was created from my understanding of the Mozilla developer docs on the [String.slice method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice#Syntax).
+
+![String slice flowchart](./images/String.slice.png)
 
 ### Concatenation
 
