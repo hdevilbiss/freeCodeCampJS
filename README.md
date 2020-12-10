@@ -260,6 +260,10 @@ function curried(cumin) {
 }
 ```
 
+From M. David Green on [sitepoint.com](https://www.sitepoint.com/currying-in-functional-javascript/#:~:text=Currying%20is%20an%20incredibly%20useful%20technique%20from%20functional,that%20can%20be%20understood%20when%20reading%20your%20code.)
+
+> you can pass all of the arguments a function is expecting and get the result, or pass a subset of those arguments and get a function back that’s waiting for the rest of the arguments
+
 #### Currying in ES6
 
 The above can be rewritten as such:
