@@ -81,7 +81,7 @@ The functions passed in, or returned, are known as _lambda_.
 
 The issue with mutation is that it can make it harder to debug your programs when something goes wrong. Changes to function arguments or global parameters can contribute to the confusion.
 
-_... in functional programming, changing or altering things is called mutation, and the outcome is called a side effect_
+> in functional programming, changing or altering things is called mutation, and the outcome is called a side effect
 
 ## Recap on Two Principles for Functional Programming
 
