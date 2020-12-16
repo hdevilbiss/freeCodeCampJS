@@ -6,18 +6,13 @@
 const pairElement = (str) => {
     let newArr = str.split("");
     for (let i = 0; i < newArr.length; i++) {
-        if (newArr[i] === "G") {
-            newArr[i] = ["G","C"];
-        }
-        else if (newArr[i] === "C") {
-            newArr[i] = ["C","G"];
-        }
-        else if (newArr[i] === "A") {
-            newArr[i] = ["A","T"];
-        }
-        else {
-            newArr[i] = ["T","A"];
-        }
+        newArr[i] === "G"
+            ? newArr[i] = ["G","C"]
+            : newArr[i] === "C"
+                ? newArr[i] = ["C","G"]
+                : newArr[i] === "A"
+                    ? newArr[i] = ["A","T"]
+                    : newArr[i] = ["T","A"];
     }
     return newArr;
 }
