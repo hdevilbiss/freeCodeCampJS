@@ -286,3 +286,13 @@ let myCount = countThree.bind(this, 1, 4);
 
 myCount(5); //returns 10
 ```
+
+### String.replace
+
+From Mozilla:
+
+> The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match. If pattern is a string, only the first occurrence will be replaced
+
+Source: [MDN](https://developer.mozilla.org/en-us/docs/web/javascript/reference/global_objects/string/replace)
+
+I think the key point here is this: `String.replace` accepts two arguments. They can either be string literals, or, the first argument can be a regular expression, and the second argument can be a callback function to perform on each match.
