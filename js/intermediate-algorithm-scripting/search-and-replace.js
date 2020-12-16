@@ -6,14 +6,24 @@
  * @return {String}
  */
 const myReplace = (str,before,after) => {
-    const beforeRegex = new RegExp(before,"g");
-    let result = str.match(beforeRegex);
-    const uppercaseRegex = /[A-Z]/;
-    if (uppercaseRegex.test(result[0][0]) == true && uppercaseRegex.test(after[0]) == false) {
-        after[0].toUpperCase
+    const searchRegex = new RegExp(before, 'g');
+
+    let match = str.match(searchRegex);
+
+    let newAfter = after.split("");
+
+    console.log(newAfter);
+
+    if (/[A-Z]/.test(match[0].charAt(0)) === true && /[A-Z]/.test(after[0]) === false) {
+        newAfter[0] = newAfter[0].toUpperCase();
     }
-    console.log(result,after,after[0].toUpperCase)
-    console.log(uppercaseRegex.test(result[0][0]))
+
+    newAfter = newAfter.join("");
+    console.log(newAfter);
+
+    let newStr = str.replace(before,newAfter);
+
+    console.log(newStr);
 }
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped")
