@@ -4,21 +4,16 @@
  * @return {Str} the characters missing from the range
  */
 const fearNotLetter = (str) => {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
   let returnArr = [];
-  let sortStrToArr = str.split("").sort().join("");
-  let filteredAlphabet = alphabet.filter(letter => {
-    return letter >= sortStrToArr[0] && letter <= sortStrToArr[sortStrToArr.length - 1]
+  let sortedStr = str.split("").sort().join("");
+  const filteredAlphabet = "abcdefghijklmnopqrstuvwxyz".split("").filter(letter => {
+    return letter >= sortedStr[0] && letter <= sortedStr[sortedStr.length - 1]
   });
-
-  console.log(sortStrToArr)
-
-  filteredAlphabet.forEach((letter) => {
-    if (sortStrToArr.indexOf(letter) === -1) {
+  filteredAlphabet.forEach(letter => {
+    if (sortedStr.indexOf(letter) === -1) {
       returnArr.push(letter);
     }
   });
-
   return returnArr.length === 0
     ? undefined
     : returnArr.join("");
