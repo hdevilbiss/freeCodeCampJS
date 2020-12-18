@@ -4,23 +4,24 @@
  * @return {Str} the characters missing from the range
  */
 const fearNotLetter = (str) => {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-    let returnArr = [];
-    let sortedStr = str.split("").sort().join("");
-    let filteredAlphabet = alphabet.filter(letter => {
-        return letter >= sortedStr[0] && letter <= sortedStr[sortedStr.length - 1]
-    });
-    console.log(`sortedStr:${sortedStr}`);
-    console.log(filteredAlphabet);
-    for (let i = 0; i < filteredAlphabet.length; i++) {
-        if (filteredAlphabet.indexOf('a') === -1 ) {
-            returnArr.push(sortedStr.charAt(i))
-        }
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  let returnArr = [];
+  let sortStrToArr = str.split("").sort().join("");
+  let filteredAlphabet = alphabet.filter(letter => {
+    return letter >= sortStrToArr[0] && letter <= sortStrToArr[sortStrToArr.length - 1]
+  });
+
+  console.log(sortStrToArr)
+
+  filteredAlphabet.forEach((letter) => {
+    if (sortStrToArr.indexOf(letter) === -1) {
+      returnArr.push(letter);
     }
-    console.log(returnArr);
-    return returnArr.length === 0
-        ? undefined
-        : returnArr;
+  });
+
+  return returnArr.length === 0
+    ? undefined
+    : returnArr.join("");
 }
 
 /**
@@ -29,7 +30,7 @@ const fearNotLetter = (str) => {
 let testArr = [];
 
 testArr.push(
-    ['abde', 'd'],
+    ['abde', 'c'],
     ['abcdefghjklmno','i'],
     ['stvwx','u'],
     ['bcdf','e'],
@@ -38,7 +39,6 @@ testArr.push(
 );
 
 testArr.forEach(([ input, expectedOutput ]) => {
-    console.log(`input:${input}`);
     console.log(`result:${fearNotLetter(input) === expectedOutput ? "PASS" : "FAIL"}`);
 })
 
