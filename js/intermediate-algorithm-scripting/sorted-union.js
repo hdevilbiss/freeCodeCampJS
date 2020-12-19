@@ -4,7 +4,7 @@
  * @return {Array} arr of unique vals in order found, no duplicates
  */
 const uniteUnique = (...arr) => {
-  return new Set(arr.flat());
+  return [...new Set(arr.flat())];
 }
 
 let res1 = uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);//[1, 3, 2, 5, 4]
