@@ -19,5 +19,16 @@ testArr.push(
 );
 
 testArr.forEach(([ input, expectedOutput ]) => {
-  console.log(`result:${uniteUnique(input) === expectedOutput ? "PASS" : "FAIL"}`);
+  let result = uniteUnique(input);
+  let failArr = [];
+  result.length !== expectedOutput.length
+    ? failArr.push(1)
+    : expectedOutput.forEach((num,idx) => {
+        if (result[idx] !== num) {
+          failArr.push(result[idx]);
+        }
+      });
+  return failArr.length === 0
+    ? console.log("PASS")
+    : console.log("FAIL")
 });
