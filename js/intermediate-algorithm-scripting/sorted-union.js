@@ -1,10 +1,24 @@
 /**
  * uniteUnique
  * @param {Array} arr of arrays to join into 1
- * @return {Array} arr of unique vals in order, no duplicates
+ * @return {Array} arr of unique vals in order found, no duplicates
  */
 const uniteUnique = (arr) => {
-  return arr;
+  let returnArr = [];
+  // arr.forEach(innerArr => {
+  //   innerArr.forEach(num => {
+  //     if (returnArr.indexOf(num) === -1) {
+  //       returnArr.push(num);
+  //     }
+  //   });
+  // });
+  for (const innerArr of arr) {
+    innerArr.forEach(num => {
+      if (returnArr.indexOf(num) === -1) returnArr.push(num);
+    })
+  }
+  console.log(`returnArr:`,returnArr);
+  return returnArr;
 }
 
 /**
