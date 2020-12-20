@@ -8,7 +8,9 @@ Learn to code with [freeCodeCamp.org](https://freecodecamp.org)
 
 I created this repo, because I want to track my progress with freeCodeCamp, and because I just plain enjoy writing about code. Most of the content is Markdown or Text files, but occasionally, I will throw a [js script](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/js) or [flowchart image](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/images) in the top layer of the project.
 
-### Note about posting on the FCC forum
+### Notes about posting on the FCC forum
+
+#### Hide your code with `details` tags
 
 When posting code to the freeCodeCamp forum, it should use markdown formatting and a `[details]` block.
 
@@ -20,7 +22,7 @@ When posting code to the freeCodeCamp forum, it should use markdown formatting a
 
 [/details]
 
-#### Want to contribute?
+#### How to contribute to this repository
 
 If you want to contribute for whatever reason, then
 
@@ -31,7 +33,7 @@ If you want to contribute for whatever reason, then
 #### Want to test out the JavaScript?
 
 1. Be able to use `node` from your code editor's terminal; for example, install Node using [nvm](https://github.com/nvm-sh/nvm).
-2. Run `node <path/to/js/file.js>`. For example, `node js/wherefore-art-thou.js`
+2. Run `node <path/to/js/file.js>`. For example, `node js/intermediate-algorithms/wherefore-art-thou.js`
 
 ## Functional Programming
 
@@ -61,9 +63,9 @@ Callbacks are functions that get passed to another function to decide its outcom
 
 All JavaScript functions are first-class functions. First class functions can be:
 
-- Assigned to a variable
-- Passed to another function
-- Returned from a function
+-   Assigned to a variable
+-   Passed to another function
+-   Returned from a function
 
 ## Higher Order Functions
 
@@ -74,6 +76,8 @@ Higher order functions either accept functions as arguments, or return functions
 ## Lambda
 
 The functions passed in, or returned, are known as _lambda_.
+
+I haven't heard the term "lamba" very much so far in my web dev jOuRnEy, but I did notice Ben Awad mentioning "lambda" a lot in his [recent video](https://youtu.be/thqX845NEgg) about his VSTinder app getting DDOS'd.
 
 ## Declarative vs. Imperative
 
@@ -96,7 +100,7 @@ It returns an array; a copy of the original array, that has been mutated by the 
 
 Thankfully, the original array will not have been mutated. This means that `map` is a "pure" function.
 
-According to [freeCodeCamp.org](https://freecodecamp.org), the callback function may receive up to three arguments:
+The callback function may receive up to three arguments:
 
 1. the current element being processed,
 2. the index of the current element being processed, and
@@ -115,29 +119,19 @@ The `filter` method is similar to the `map` method: it does not mutate the origi
 In its simplest form, the `filter` method uses the first argument and performs a simple conditional check on it.
 
 ```javascript
-let sendSpamAboutMedicaid = (person) =>
-  `${person}, you may be eligible for Medicaid.`;
+let offerAlcohol = (person) => `${person}, would you like an adult beverage?`;
 
 let myArray = [
-  { name: "Harry", age: 20 },
-  { name: "Holly", age: 10 },
-  { name: "Harriet", age: 65 },
-  { name: "Heather", age: 16 },
-  { name: "Hazel", age: 22 },
+    { name: "Harry", age: 20 },
+    { name: "Holly", age: 10 },
+    { name: "Harriet", age: 65 },
+    { name: "Heather", age: 16 },
+    { name: "Hazel", age: 22 },
 ];
 
-/**
- * Filter array by age >= 18
- */
-let filteredArray = myArray.filter(
-  (person) => person.age > 18 && person.age <= 64
-);
+let filteredArray = myArray.filter((person) => person.age >= 21); // Harriet and Hazel
 
-console.log(filteredArray);
-
-let mailingList = filteredArray.forEach((person) =>
-  sendSpamAboutMedicaid(person)
-);
+filteredArray.forEach((person) => offerAlcohol(person));
 ```
 
 Unlike the `map` method, the `filter` method does _not_ return an identically-lengthed array; it only returns values which pass the condition with truth.
@@ -145,6 +139,12 @@ Unlike the `map` method, the `filter` method does _not_ return an identically-le
 ## Array Mutation
 
 > Functional programming is all about creating and using non-mutating functions.
+
+Arrays in JavaScript are mutable, meaning, they can be mutated.
+
+Strings in JavaScript are immutable, meaning, they cannot be mutated.
+
+Let's go over some common JavaScript methods.
 
 ### Slice vs. Splice
 
@@ -174,7 +174,7 @@ The `reduce` method itself takes 2 parameters:
 
 1. The callback function
 2. Initial value for the accumulator; _if not set_, then ...
-   > ... the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator
+    > ... the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator
 
 The callback function given 🎁 to the `reduce` method may accept 4 arguments:
 
@@ -185,23 +185,29 @@ The callback function given 🎁 to the `reduce` method may accept 4 arguments:
 
 Hint hint: You can use destructuring on the parameters of the callback function to make your `reduce` method itself a functional program.
 
-#### Note about using destructuring cleverly
+#### Destructuring cleverly
 
 In the `watchList` exercise to get the average rating of all Christopher Nolan films, it was my first instinct to use a separate counter variable inside my function, but outside of the reduce method. However, [using an object as the accumulator](https://github.com/hdevilbiss/freeCodeCampJS/blob/master/Functional%20Programming/use-the-reduce-method-to-analyze-data.md#solution-3) means that you can accumulate more than one item in your `reduce` method.
 
 ### Sort
 
-The `sort` method appears to be a mutating array which defaults to sorting an array of characters by their respective Unicode values. The `sort` method expects a callback method as an argument.
+The `sort` method appears to be a mutating array method which defaults to sorting an array of characters by their respective Unicode values. The `sort` method may receive a callback method as an argument.
 
 > If `compareFunction(a,b)` returns a value greater than 0 for two elements `a` and `b`, then `b` will come before `a`. If `compareFunction(a,b)` returns a value equal to 0 for two elements `a` and `b`, then `a` and `b` will remain unchanged.
 
 ![flowchart showing Array.sort only changing order when the comparison of two values is greater than 0](images/Array.sort.png)
 
-### Split
+### String.split
 
 The `split` method is a String method which returns an array containing split pieces of the calling string. The `split` method expects an argument which can be a literal delimiter or a regular expression to match a variety of delimiters.
 
 Because strings are immutable in JavaScript, the `split` method does not mutate its parameter.
+
+#### Warning about String.split
+
+From [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) web documents:
+
+> Warning: When the empty string ("") is used as a separator, the string is not split by user-perceived characters (grapheme clusters) or unicode characters (codepoints), but by UTF-16 codeunits. This destroys surrogate pairs.
 
 ### Join
 
@@ -213,9 +219,9 @@ Split an array at all special characters, then join the entries in the array tog
 
 ```javascript
 function sentensify(str) {
-  return str.split(/\s|,|-|\./).join(" ");
+    return str.split(/\s|,|-|\./).join(" ");
 }
-sentensify("May-the-force-be-with-you");
+sentensify("May-the-force-be-with-you"); //May the force be with you
 ```
 
 ### Array.every method
@@ -248,15 +254,15 @@ A curried function has functions embedded inside of it.
 
 ```javascript
 function uncurried(cumin, curryPowder, tikkaMasala) {
-  return cumin.concat(curryPowder, tikkaMasala);
+    return cumin.concat(curryPowder, tikkaMasala);
 }
 
 function curried(cumin) {
-  return function (curryPowder) {
-    return function (tikkaMasala) {
-      return cumin.concat(curryPowder, tikkaMasala);
+    return function (curryPowder) {
+        return function (tikkaMasala) {
+            return cumin.concat(curryPowder, tikkaMasala);
+        };
     };
-  };
 }
 ```
 
@@ -270,7 +276,7 @@ The above can be rewritten as such:
 
 ```javascript
 const curried = (cumin) => (curryPowder) => (tikkaMasala) =>
-  cumin.concat(curryPowder, tikkaMasala);
+    cumin.concat(curryPowder, tikkaMasala);
 ```
 
 #### Impartial Binding
@@ -279,7 +285,7 @@ The `bind` method can be used on a function to apply only a portion of the argum
 
 ```javascript
 function countThree(a, b, c) {
-  return a + b + c;
+    return a + b + c;
 }
 
 let myCount = countThree.bind(this, 1, 4);
