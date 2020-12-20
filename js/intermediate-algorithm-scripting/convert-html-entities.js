@@ -5,14 +5,21 @@
  * @return {String} str but without symbols
  */
 const convertHTML = (str) => {
-  const convertObj = {
+  const charRegex = /(&|<|>|"|')/;
+  const chart = {
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
     '"': '&quot;',
     '\'': '&apos;'
   }
-  return str.replace()
+  return str.split(charRegex).map(val => {
+    return chart[val] === undefined
+      ? val
+      : chart[val]
+  }).join('');
 }
 
-convertHTML("Dolce & Gabbana");
+console.log(convertHTML("Dolce & Gabbana"))
+console.log(convertHTML("Hamburgers < Pizza < Tacos"))
+console.log(convertHTML('Stuff in "quotation marks"'))
