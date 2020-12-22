@@ -1,3 +1,0 @@
-### Flags
-- i : case-insensitive
-- g : repeater (match more than once)

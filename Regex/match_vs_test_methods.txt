@@ -1,6 +1,0 @@
-Note that the .match syntax is the "opposite" of the .test method you have been using thus far:
-
-'string'.match(/regex/);
-/regex/.test('string');
-
-
