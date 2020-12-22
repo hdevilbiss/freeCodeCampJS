@@ -187,7 +187,32 @@ Hint hint: You can use destructuring on the parameters of the callback function 
 
 #### Destructuring cleverly
 
-In the `watchList` exercise to get the average rating of all Christopher Nolan films, it was my first instinct to use a separate counter variable inside my function, but outside of the reduce method. However, [using an object as the accumulator](https://github.com/hdevilbiss/freeCodeCampJS/blob/master/Functional%20Programming/use-the-reduce-method-to-analyze-data.md#solution-3) means that you can accumulate more than one item in your `reduce` method.
+In the `watchList` exercise to get the average rating of all Christopher Nolan films, it was my first instinct to use a separate counter variable inside my function, but outside of the reduce method. However, using an object as the accumulator means that you can accumulate more than one item in your `reduce` method.
+
+##### Solution 3: using reduce on the watchList
+
+```javascript
+function getRating(watchList) {
+    const averageRating = watchList.reduce(
+        ({ sum, count }, { Director: dir, imdbRating: rating }, idx, arr) => {
+            if (dir === "Christopher Nolan") {
+                count++;
+                sum += Number(rating);
+            }
+            return idx === arr.length - 1 ? sum / count : { sum, count };
+        },
+        { sum: 0, count: 0 }
+    );
+    return averageRating;
+}
+```
+
+In this function, destructuring is used in the `reduce` callback function.
+
+1. `{ sum, count }` is the accumulator. Both values are initialized as 0 in the second parameter to the `reduce` method.
+1. `{ Director: dir, imdbRating: rating }` is the current value being processed in the array.
+1. `idx` is the current index in the array being processed.
+1. `arr` refers to the array on which `reduce` was called.
 
 ### Sort
 
