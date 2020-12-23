@@ -1,28 +1,21 @@
 /**
  * sumFibs
  * @param {Number} num
- * @return {Number} sum of all fibonacci nums <= num
+ * @return {Number} sum of all ODD fibonacci nums <= num
  */
 const sumFibs = (num) => {
-  let sum;
-  let numArr = [0,1];
-  if (num > 1) {
-    while (numArr[1] < num) {
-      sum = numArr[0] + numArr[1];
-      numArr[0] = numArr[1];
-      numArr[1] = sum;
-    }
-  }
-  /**
-   * The first six numbers of the Fibonacci sequence are
-   * 0, 1, 1, 2, 3, 5 and 8 ... 13, 21, 34, ...
-   * After 0 and 1, it is the sum of the previous 2 nums
-   * Fn = 0 + 1 + (F1 + F0) + (F2 + F1) + (F3 + F2) + (F4 + F3) + ... (Fn-1 + Fn-2)
-   */
-  if (num === 1) sum = 2;
-  if (num === 0 || num == undefined) sum = 0;
-  return sum;
+  let firstNum = 0;
+  let secondNum = 1;
+  let fibSum = 0;
+
 }
+
+/**
+ * The first six numbers of the Fibonacci sequence are
+ * 0, 1, 1, 2, 3, 5 and 8 ... 13, 21, 34, ...
+ * After 0 and 1, it is the sum of the previous 2 nums
+ * Fn = 0 + 1 + (F1 + F0) + (F2 + F1) + (F3 + F2) + (F4 + F3) + ... (Fn-1 + Fn-2)
+ */
 
 /**
  * Tests for sumFibs
@@ -38,7 +31,7 @@ testArr.push(
   [0, 0],
   [1, 2],
   [2, 2],
-  [3, 4],
+  [3, 5],
   [undefined, 0],
 )
 
