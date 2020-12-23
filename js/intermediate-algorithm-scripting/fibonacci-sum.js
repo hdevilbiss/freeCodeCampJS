@@ -5,7 +5,7 @@
  */
 const sumFibs = (num) => {
   let sum;
-  let numArr = [1,1];
+  let numArr = [0,1];
   if (num > 1) {
     while (numArr[1] < num) {
       sum = numArr[0] + numArr[1];
@@ -15,9 +15,9 @@ const sumFibs = (num) => {
   }
   /**
    * The first six numbers of the Fibonacci sequence are
-   * 1, 1, 2, 3, 5 and 8 ... 13, 21, 34, ...
-   * After 1 and 1, it is the sum of the previous 2 nums
-   * f(x) = 1 + 1 + (x[0] + x[1]) + (x[1] + x[2]) + (x[2] + x[3]) + (x[3] + x[4]) + ...
+   * 0, 1, 1, 2, 3, 5 and 8 ... 13, 21, 34, ...
+   * After 0 and 1, it is the sum of the previous 2 nums
+   * Fn = 0 + 1 + (F1 + F0) + (F2 + F1) + (F3 + F2) + (F4 + F3) + ... (Fn-1 + Fn-2)
    */
   if (num === 1) sum = 2;
   if (num === 0 || num == undefined) sum = 0;
@@ -43,5 +43,5 @@ testArr.push(
 )
 
 testArr.forEach(arr => {
-  console.log(sumFibs(arr[0]) === arr[1] ? "PASS" : `FAIL; got ${sumFibs(arr[0])}, expected ${arr[1]}`);
+  console.log(sumFibs(arr[0]) === arr[1] ? `PASS: ${sumFibs(arr[0])}` : `FAIL; got ${sumFibs(arr[0])}, expected ${arr[1]}`);
 })
