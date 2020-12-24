@@ -4,10 +4,21 @@
  * @return {Number} sum of all ODD fibonacci nums <= num
  */
 const sumFibs = (num) => {
-  let firstNum = 0;
-  let secondNum = 1;
-  let fibSum = 0;
+  const fibonacci = [0,1,1];
+  /**
+   * Get the full Fibonacci sequence as an array
+   */
+  while ( fibonacci[fibonacci.length - 1] < num ) {
+    // Push the sum of the second-to-last and the last numbers in the array, onto the array
+    fibonacci.push(fibonacci[fibonacci.length - 2] + fibonacci[fibonacci.length - 1]);
+  }
+  console.log(fibonacci)
 
+  /**
+   * Filter the Fibonacci array by num % 2 == 1 (keep only odds)
+   * Reduce the new array into one value: its sum
+   */
+  return fibonacci.filter(fibNum => (fibNum % 2 === 1) && (fibNum <= num)).reduce(((acc,curVal) => acc + curVal), 0);
 }
 
 /**
@@ -36,5 +47,5 @@ testArr.push(
 )
 
 testArr.forEach(arr => {
-  console.log(sumFibs(arr[0]) === arr[1] ? `PASS: ${sumFibs(arr[0])}` : `FAIL; got ${sumFibs(arr[0])}, expected ${arr[1]}`);
+  console.log(sumFibs(arr[0]) === arr[1] ? `PASS: The fib sum of ${arr[0]} == ${sumFibs(arr[0])} == ${arr[1]}` : `FAIL; ${arr[0]} got ${sumFibs(arr[0])}, expected ${arr[1]}`);
 })
