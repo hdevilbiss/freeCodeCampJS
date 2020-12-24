@@ -2,19 +2,15 @@
  * sumFibs
  * @param {Number} num
  * @return {Number} sum of all ODD fibonacci nums <= num
+ * 1. Get the full Fibonacci sequence (until num) as an array
+ * 2. Filter by odds, then reduce to its sum
  */
 const sumFibs = (num) => {
   const fibonacci = [0,1,1];
-  // Get the full Fibonacci sequence as an array
   while ( fibonacci[fibonacci.length - 1] < num ) {
-    // Push the sum of the second-to-last and the last numbers in the array, onto the array
     fibonacci.push( fibonacci[fibonacci.length - 2] + fibonacci[fibonacci.length - 1] );
   }
-  /**
-   * Filter the Fibonacci array by num % 2 == 1 (keep only odds)
-   * Reduce the new array into one value: its sum
-   */
-  return fibonacci.filter(fibNum => (fibNum % 2 === 1) && (fibNum <= num)).reduce(((acc,curVal) => acc + curVal), 0);
+  return fibonacci.filter(fibNum => fibNum % 2 === 1 && fibNum <= num).reduce(((sum,curVal) => sum + curVal), 0);
 }
 
 /**
