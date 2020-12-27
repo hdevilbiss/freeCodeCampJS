@@ -6,18 +6,15 @@
  */
 const sumPrimes = (num) => {
   if (num < 2 || isNaN(num) === true) return 0;
-  const numsObj = {};
-  for (let i = 2; i <= num; i++) {
-    numsObj[i] = true;
-  }
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (numsObj[i] === true) {
-      for (let j = Math.pow(i,2); j <= num; j + i) {
-        numsObj[j] = false;
-      }
+  let k = (num - 2);
+  let arrOfInts = [true] * (k + 1);
+  for (let i = 1; i <= k + 1; i++) {
+    j = i
+    while (i + j + 2 * i * j <= k) {
+      arrOfInts[i + j + 2 * i * j] = false;
     }
   }
-
+  return arrOfInts.filter(val => val === true).reduce(((sum,curVal) => sum + curVal),0);
 }
 
 /**
