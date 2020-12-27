@@ -6,15 +6,16 @@
  */
 const sumPrimes = (num) => {
   if (num < 2 || isNaN(num) === true) return 0;
-  let k = (num - 2);
-  let arrOfInts = [true] * (k + 1);
-  for (let i = 1; i <= k + 1; i++) {
-    j = i
-    while (i + j + 2 * i * j <= k) {
-      arrOfInts[i + j + 2 * i * j] = false;
+  let arrOfNums = Array.from({length: num + 1}, (v, k) => k).slice(2);
+  let onlyPrimes = arrOfNums.filter(n => {
+    let m = n - 1;
+    while (m > 1 && m >= Math.sqrt(n)) {
+      if (n % m === 0) return false;
+      m--;
     }
-  }
-  return arrOfInts.filter(val => val === true).reduce(((sum,curVal) => sum + curVal),0);
+    return true;
+  });
+  return onlyPrimes.reduce((sum,curNum) => sum + curNum);
 }
 
 /**
@@ -27,7 +28,7 @@ testArr.push(
   [977,73156],
   [0, 0],
   [1, 0],
-  [2, 0]
+  [2, 2]
 );
 
 testArr.forEach(arr => console.log(sumPrimes(arr[0]) === arr[1] ? `PASS: ${sumPrimes(arr[0])} === ${arr[1]}` : `FAIL: GOT ${sumPrimes(arr[0])}, EXPECTED ${arr[1]}`));
