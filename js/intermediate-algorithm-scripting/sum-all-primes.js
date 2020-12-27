@@ -2,11 +2,22 @@
  * A prime number is
  * a whole number greater than 1 with exactly two divisors:
  * 1 and itself
- * @link https://web.sonoma.edu/math/colloq/primes_sonoma_state_9_24_08.pdf
+ * @link https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
  */
 const sumPrimes = (num) => {
-  const primes = [2,3,5,7,11];
-  return num;
+  if (num < 2 || isNaN(num) === true) return 0;
+  const numsObj = {};
+  for (let i = 2; i <= num; i++) {
+    numsObj[i] = true;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (numsObj[i] === true) {
+      for (let j = Math.pow(i,2); j <= num; j + i) {
+        numsObj[j] = false;
+      }
+    }
+  }
+
 }
 
 /**
@@ -22,4 +33,4 @@ testArr.push(
   [2, 0]
 );
 
-testArr.forEach(arr => console.log(arr))
+testArr.forEach(arr => console.log(sumPrimes(arr[0]) === arr[1] ? `PASS: ${sumPrimes(arr[0])} === ${arr[1]}` : `FAIL: GOT ${sumPrimes(arr[0])}, EXPECTED ${arr[1]}`));
