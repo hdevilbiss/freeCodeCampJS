@@ -1,8 +1,9 @@
 /**
  * dropElements
+ * Drop elements from the array until func finds true
  * @param {Array} arr to filter
  * @param {Function} func how to filter
- * @return {Array} filtered arr
+ * @return {Array} filtered arr: the first val to return true, and all that follow it
  */
 const dropElements = (arr,func) => {
   const firstTrueIdx = arr.findIndex(func);
