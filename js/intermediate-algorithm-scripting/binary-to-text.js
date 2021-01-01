@@ -5,19 +5,19 @@
  * Translate a string of binary into English
  */
 const binaryAgent = (str) => {
+  // Split string at the spaces
   const binaryArr = str.split(" ");
-  //console.log(binaryArr);
-  let unicodeArr = [];
-  binaryArr.forEach((binary,idx) => {
-    let unicode = 0;
-    for (let i = 0; i <= binary.length; i++) {
-      let makeUnicode = parseInt(binary[i]) * Math.pow(2,i);
-      //console.log(unicode)
-      if (makeUnicode !== undefined && !isNaN(makeUnicode) === true) unicode += makeUnicode;
+  const decimalArr = [];
+  // Loop over each byte
+  binaryArr.forEach((binary) => {
+    let decimal = 0;
+    // Convert each byte to decimal
+    for (let i = 0; i < binary.length; i++) {
+      decimal += parseInt(binary[i]) * Math.pow(2,i);
     }
-    unicodeArr.push(unicode);
+    decimalArr.push(decimal);
   });
-  console.log(unicodeArr);
+  console.log(decimalArr);
 }
 
 //Aren't bonfires fun!?
