@@ -1,28 +1,24 @@
 /**
  *
- * @param {String} str of space-separated binary
- * @return {String}
- * Translate a string of binary into English
+ * @param {String} str
+ * Translate a string of spaced-delimited bytes into English.
+ * Split the string of binary at the spaces.
+ * Loop over each byte.
+ * Convert each byte to decimal.
+ * Get the character code of each decimal.
+ * Return the joined characters.
  */
 const binaryAgent = (str) => {
-  // Split string at the spaces
   const binaryArr = str.split(" ");
-  const decimalArr = [];
   const strArr = [];
-
-  // Loop over each byte
   binaryArr.forEach(binary => {
     let decimal = 0;
-    // Convert each byte to decimal
     for (let i = 0; i <= binary.length - 1; i++) {
       decimal += parseInt(binary[i]) * Math.pow(2,((binary.length - 1) - i));
     }
-
-    decimalArr.push(decimal);
     strArr.push(String.fromCharCode(decimal));
   });
-  console.log(decimalArr);
-  console.log(strArr);
+  return strArr.join("");
 }
 
 //Aren't bonfires fun!?
