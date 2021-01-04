@@ -5,14 +5,7 @@
  * Check if the predicate is truthy on all elements of a collection
  */
 const truthCheck = (collection, pre) => {
-  let flag = true;
-  if (pre) {
-    collection.forEach(obj => {
-      if (!obj[pre]) flag = false;
-    });
-  }
-  console.log(flag);
-  return flag;
+  return collection.every(obj => obj[pre]);
 }
 
 console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex")); // true
