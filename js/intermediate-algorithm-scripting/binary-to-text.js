@@ -8,16 +8,22 @@ const binaryAgent = (str) => {
   // Split string at the spaces
   const binaryArr = str.split(" ");
   const decimalArr = [];
+  const strArr = [];
+
   // Loop over each byte
-  binaryArr.forEach((binary) => {
+  binaryArr.forEach(binary => {
     let decimal = 0;
+
     // Convert each byte to decimal
     for (let i = 0; i < binary.length; i++) {
       decimal += parseInt(binary[i]) * Math.pow(2,i);
     }
+
     decimalArr.push(decimal);
+    strArr.push(String.fromCharCode(decimal));
   });
   console.log(decimalArr);
+  console.log(strArr);
 }
 
 //Aren't bonfires fun!?
