@@ -327,3 +327,27 @@ From Mozilla:
 Source: [MDN](https://developer.mozilla.org/en-us/docs/web/javascript/reference/global_objects/string/replace)
 
 I think the key point here is this: `String.replace` accepts two arguments. They can either be string literals, or, the first argument can be a regular expression, and the second argument can be a callback function to perform on each match.
+
+### parseInt
+
+The solutions to the binary-to-text exercise were interesting; I did not know that the `parseInt` function had a second, optional parameter to specify the base of the first parameter.
+
+This is pretty useful for parsing binary to text.
+
+```js
+/**
+ *
+ * @param {String} str
+ * Use the spread operator to get all values in `str` parameter.
+ * Split the string at the spaces.
+ * Map the new array over each byte:
+ * parse each byte using `parseInt`, supplying
+ * base 2 as the second parameter.
+ * Return the character code of each parsed byte.
+ */
+const compactBinaryAgent = (str) => {
+    return String.fromCharCode(
+        ...str.split(" ").map((byte) => parseInt(byte, 2))
+    );
+};
+```
