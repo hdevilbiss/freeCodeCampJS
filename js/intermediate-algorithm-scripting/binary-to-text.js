@@ -13,10 +13,9 @@ const binaryAgent = (str) => {
   // Loop over each byte
   binaryArr.forEach(binary => {
     let decimal = 0;
-
     // Convert each byte to decimal
-    for (let i = 0; i < binary.length; i++) {
-      decimal += parseInt(binary[i]) * Math.pow(2,i);
+    for (let i = 0; i <= binary.length - 1; i++) {
+      decimal += parseInt(binary[i]) * Math.pow(2,((binary.length - 1) - i));
     }
 
     decimalArr.push(decimal);
