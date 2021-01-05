@@ -2,6 +2,8 @@
 
 This set of notes is based on the [open source JavaScript curriculum](https://github.com/freeCodeCamp/freeCodeCamp/tree/master/curriculum/challenges/english/02-javascript-algorithms-and-data-structures) from freeCodeCamp.
 
+[BSD 3-Clause License](https://github.com/freeCodeCamp/freeCodeCamp/blob/master/LICENSE.md)
+
 Learn to code with [freeCodeCamp.org](https://freecodecamp.org)
 
 ## Inspired By freeCodeCamp
