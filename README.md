@@ -353,3 +353,97 @@ const compactBinaryAgent = (str) => {
     );
 };
 ```
+
+### Unit Test with Mocha
+
+Source: **[Testing Node.js with Mocha](https://www.youtube.com/watch?v=Bs68k6xfR3E)** from freeCodeCamp on YouTube, talk given by [Christopher Hiller](https://twitter.com/b0neskull) at PDXNode.
+
+Mocha dumps "everything" into the global namespace, such as the browser `Window` or the global Node object.
+
+#### Installation
+
+Globabally: `npm i -g mocha`
+
+Locally (in your project): `npm i -D mocha`
+
+#### Assertions
+
+Mocha uses the Node.js `assert` module by default.
+
+> An assertion is a comparison which throws an exception upon failure.
+
+Falsey values cause the unit tester to throw ~~tantrums~~ exceptions.
+
+```js
+const assertion = (num) => {
+    if (isNaN(num)) {
+        throw new Error("that isn't a number...");
+    }
+};
+```
+
+#### Unit Test
+
+A unit can be described as the "smallest testable chunk of code", such as a function.
+
+1. Run the unit.
+2. Make an assertion about the run; e.g., does the return value match the expected value?
+
+#### Integration Test
+
+An integeration test is different than a unit test in that it tests multiple units, modules, layers... Not just one unit.
+
+#### Express Example
+
+> Express is the wrapper around ... Node's HTTP server ...
+
+From the way he described Express, it sounds like Express handle the HTTP routing from the browser.
+
+##### **lib/request-time.js**
+
+```js
+/**
+ * Add a timestamp to the Request's `requestTime` property
+ * request = GET, POST, PUT, etc
+ * response = 200, 301, 404, etc
+ * next = done, go to the next middleware
+ */
+module.exports = (request, response, next) => {
+    request.requestTime = Date.now();
+    next();
+};
+```
+
+##### Suites
+
+The `describe` function creates a suite. It expects two parameters:
+
+1. Title (string)
+2. Callback function ("body" of the suite)
+
+##### **test/request-time.spec.js**
+
+The `requestTime` function expects 3 parameters, so three parameters must be provided in the unit test for it to pass... These pre-defined values (null and the empty function) are known as stubs.
+
+```js
+const assert = require("assert");
+const requestTime = require("../lib/request-time");
+describe("requestTime middleware test suite", function () {
+    it("should add a `requestTime` property to the `request` parameter", function () {
+        const request = {};
+        requestTime(request);
+        assert.ok(request.requestTime > 0);
+    });
+});
+```
+
+#### Integration Tests against Express Servers
+
+This is a bit over my head, but Christopher mentioning a tool call `supertest` for running [integration tests against Express servers](https://www.npmjs.com/package/supertest).
+
+Types of integration tests:
+
+1. "Nodeback" style (it with title + callback).
+2. Promise style.
+
+Asynchronous tests get reported in serial, not asynchronously.
