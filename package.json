@@ -1,5 +1,5 @@
 {
-  "name": "hdevilbiss/freeCodeCampJS",
+  "name": "hdevilbiss",
   "version": "0.0.2",
   "description": "This set of notes is based on the [open source JavaScript curriculum](https://github.com/freeCodeCamp/freeCodeCamp/tree/master/curriculum/challenges/english/02-javascript-algorithms-and-data-structures) from freeCodeCamp.",
   "main": "",
@@ -13,10 +13,17 @@
     "type": "git",
     "url": "git+https://github.com/hdevilbiss/freeCodeCampJS.git"
   },
-  "keywords": ["freeCodeCamp","JavaScript","Mocha"],
+  "keywords": [
+    "freeCodeCamp",
+    "JavaScript",
+    "Mocha"
+  ],
   "author": "Hannah DeVilbiss",
   "bugs": {
     "url": "https://github.com/hdevilbiss/freeCodeCampJS/issues"
   },
-  "homepage": "https://github.com/hdevilbiss/freeCodeCampJS#readme"
+  "homepage": "https://github.com/hdevilbiss/freeCodeCampJS#readme",
+  "devDependencies": {
+    "mocha": "^8.2.1"
+  }
 }
