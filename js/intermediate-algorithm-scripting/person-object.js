@@ -27,9 +27,7 @@ var Person = function(firstAndLast) {
   }
 };
 
-// Person.prototype.getFullName = () => this.fullName;
-// Person.prototype.getFirstName = () => this.firstName;
-// Person.prototype.getLastName = () => this.lastName;
+module.exports = Person;
 
 var bob = new Person('Bob Ross');
 console.log(bob.getFullName()); //Bob Ross
