@@ -8,21 +8,22 @@ Learn to code with [freeCodeCamp.org](https://freecodecamp.org)
 
 ## Inspired By freeCodeCamp
 
-I created this repo, because I want to track my progress with freeCodeCamp, and because I just plain enjoy writing about code. Most of the content is Markdown or Text files, but occasionally, I will throw a [js script](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/js) or [flowchart image](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/images) in the top layer of the project.
+I created this repo, because I want to track my progress with freeCodeCamp, and because I just plain enjoy writing about code.]
 
-### Notes about posting on the FCC forum
+The JavaScript files are in the [js subfolder](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/js).
 
-#### Hide your code with `details` tags
+### Test the JavaScript files using Node
 
-When posting code to the freeCodeCamp forum, it should use markdown formatting and a `[details]` block.
+1. Be able to use `node` from your code editor's terminal; for example, install Node using [nvm](https://github.com/nvm-sh/nvm).
+1. Run `node <path/to/js/file.js>`. For example, `node js/intermediate-algorithms/wherefore-art-thou.js`.
+1. The console results will display in the terminal.
 
-[details]
+### Run the unit tests, if applicable
 
-```javascript
-(() => console.log("Hello, world"))();
-```
-
-[/details]
+1. Clone the repository. `git clone https://github.com/hdevilbiss/freeCodeCampJS`
+1. Move into the new folder. `cd freeCodeCampJS`
+1. Install Node dependencies. `npm i`
+1. Run the unit test (using Mocha). `npm test`.
 
 #### How to contribute to this repository
 
@@ -32,12 +33,9 @@ If you want to contribute for whatever reason, then
 2. Make some commits on your copy of the repo.
 3. Make a pull request into my copy of the repo.
 
-#### Want to test out the JavaScript?
+## Notes taken while completing the coursework
 
-1. Be able to use `node` from your code editor's terminal; for example, install Node using [nvm](https://github.com/nvm-sh/nvm).
-2. Run `node <path/to/js/file.js>`. For example, `node js/intermediate-algorithms/wherefore-art-thou.js`
-
-## Functional Programming
+### Functional Programming
 
 There were a few core principles to functional programming outlined in the [freeCodeCamp.org](https://freecodecamp.org) preface.
 
@@ -57,11 +55,11 @@ Functions can be:
 2. Pure (Same input, same output).
 3. Limited in side effects, such as mutations.
 
-## Callbacks
+### Callbacks
 
 Callbacks are functions that get passed to another function to decide its outcome. For example, a callback function may be passed to a `filter` method to decide how to filter an array.
 
-## First Class Functions
+### First Class Functions
 
 All JavaScript functions are first-class functions. First class functions can be:
 
@@ -69,19 +67,19 @@ All JavaScript functions are first-class functions. First class functions can be
 -   Passed to another function
 -   Returned from a function
 
-## Higher Order Functions
+### Higher Order Functions
 
 Higher order functions either accept functions as arguments, or return functions.
 
 ![Diagram to determine when a function is a higher order function](images/is-it-a-higher-fcn-person.jpg)
 
-## Lambda
+### Lambda
 
 The functions passed in, or returned, are known as _lambda_.
 
 I haven't heard the term "lamba" very much so far in my web dev jOuRnEy, but I did notice Ben Awad mentioning "lambda" a lot in his [recent video](https://youtu.be/thqX845NEgg) about his VSTinder app getting DDOS'd.
 
-## Declarative vs. Imperative
+### Declarative vs. Imperative
 
 > JavaScript offers many predefined methods that handle common tasks ... For example, instead of using the for loop mentioned above, you could call the map method which handles the details of iterating over an array.
 
@@ -89,12 +87,12 @@ The issue with mutation is that it can make it harder to debug your programs whe
 
 > in functional programming, changing or altering things is called mutation, and the outcome is called a side effect
 
-## Recap on Two Principles for Functional Programming
+### Recap on Two Principles for Functional Programming
 
 1. Create new variables instead of altering existing variables.
 2. Declare arguments for functions, and only operate on the arguments; leave the global object alone!
 
-## The map array method
+### The map array method
 
 The `map` method is an iterator method which is used on an array directly. It receives a function, known as a **callback**, which acts on each item in the array.
 
@@ -110,7 +108,7 @@ The callback function may receive up to three arguments:
 
 The `map` array method can be used to replace `for` loops, decreasing the syntactic overhead in code: simpler syntax means less likely to have syntax errors, right?
 
-## The filter array method
+### The filter array method
 
 The `filter` method is similar to the `map` method: it does not mutate the original array, and accepts the same arguments:
 
@@ -138,7 +136,7 @@ filteredArray.forEach((person) => offerAlcohol(person));
 
 Unlike the `map` method, the `filter` method does _not_ return an identically-lengthed array; it only returns values which pass the condition with truth.
 
-## Array Mutation
+### Array Mutation
 
 > Functional programming is all about creating and using non-mutating functions.
 
@@ -148,7 +146,7 @@ Strings in JavaScript are immutable, meaning, they cannot be mutated.
 
 Let's go over some common JavaScript methods.
 
-### Slice vs. Splice
+#### Slice vs. Splice
 
 ✔️ **Slice** **does not** mutate the original array, returning a copy.
 
@@ -158,15 +156,15 @@ This graphic was created from my understanding of the Mozilla developer docs on 
 
 ![String slice flowchart](./images/String.slice.png)
 
-### Concatenation
+#### Concatenation
 
 ✔️ **Concatenation** **does not** mutate any arrays, returning a new array.
 
-### Pop, push, unshift, shift
+#### Pop, push, unshift, shift
 
 ❗ **Pop, push, unshift, and shift** all **do mutate** arrays.
 
-### Reduce
+#### Reduce
 
 The `reduce` method is similar to `filter`, `map`, and `forEach`.
 
@@ -187,11 +185,11 @@ The callback function given 🎁 to the `reduce` method may accept 4 arguments:
 
 Hint hint: You can use destructuring on the parameters of the callback function to make your `reduce` method itself a functional program.
 
-#### Destructuring cleverly
+##### Destructuring cleverly
 
 In the `watchList` exercise to get the average rating of all Christopher Nolan films, it was my first instinct to use a separate counter variable inside my function, but outside of the reduce method. However, using an object as the accumulator means that you can accumulate more than one item in your `reduce` method.
 
-##### Solution 3: using reduce on the watchList
+###### Solution 3: using reduce on the watchList
 
 ```javascript
 function getRating(watchList) {
@@ -216,7 +214,7 @@ In this function, destructuring is used in the `reduce` callback function.
 1. `idx` is the current index in the array being processed.
 1. `arr` refers to the array on which `reduce` was called.
 
-### Sort
+#### Sort
 
 The `sort` method appears to be a mutating array method which defaults to sorting an array of characters by their respective Unicode values. The `sort` method may receive a callback method as an argument.
 
@@ -224,23 +222,23 @@ The `sort` method appears to be a mutating array method which defaults to sortin
 
 ![flowchart showing Array.sort only changing order when the comparison of two values is greater than 0](images/Array.sort.png)
 
-### String.split
+#### String.split
 
 The `split` method is a String method which returns an array containing split pieces of the calling string. The `split` method expects an argument which can be a literal delimiter or a regular expression to match a variety of delimiters.
 
 Because strings are immutable in JavaScript, the `split` method does not mutate its parameter.
 
-#### Warning about String.split
+##### Warning about String.split
 
 From [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) web documents:
 
 > Warning: When the empty string ("") is used as a separator, the string is not split by user-perceived characters (grapheme clusters) or unicode characters (codepoints), but by UTF-16 codeunits. This destroys surrogate pairs.
 
-### Join
+#### Join
 
 The `join` method can be used to add strings in an array into one string. It expects a delimiter as its argument.
 
-#### Example of Split with Join
+##### Example of Split with Join
 
 Split an array at all special characters, then join the entries in the array together using a single space.
 
@@ -251,7 +249,7 @@ function sentensify(str) {
 sentensify("May-the-force-be-with-you"); //May the force be with you
 ```
 
-### Array.every method
+#### Array.every method
 
 The `every` method which receives a callback function. It enacts the callback function on every value in the array, and if each value returns true, then `every` returns true; false otherwise.
 
@@ -262,7 +260,7 @@ console.log(myArray.every(num => num < 100));//false
 console.log(myArray.every(num) => num > 0);//true
 ```
 
-### Array.some method
+#### Array.some method
 
 The `some` method is extremely similar to `every`, except that it returns true if _any_ value in the array fulfills the criterion(a).
 
@@ -391,13 +389,13 @@ A unit can be described as the "smallest testable chunk of code", such as a func
 
 #### Integration Test
 
-An integeration test is different than a unit test in that it tests multiple units, modules, layers... Not just one unit.
+An integration test is different than a unit test in that it tests multiple units, modules, layers... Not just one unit.
 
 #### Express Example
 
 > Express is the wrapper around ... Node's HTTP server ...
 
-From the way he described Express, it sounds like Express handle the HTTP routing from the browser.
+From the way he described Express, it sounds like Express handles the HTTP routing from the browser.
 
 ##### **lib/request-time.js**
 
