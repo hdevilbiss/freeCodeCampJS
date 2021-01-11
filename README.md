@@ -8,7 +8,7 @@ Learn to code with [freeCodeCamp.org](https://freecodecamp.org)
 
 ## Inspired By freeCodeCamp
 
-I created this repo, because I want to track my progress with freeCodeCamp, and because I just plain enjoy writing about code.]
+I created this repo, because I want to track my progress with freeCodeCamp, and because I just plain enjoy writing about code.
 
 The JavaScript files are in the [js subfolder](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/js).
 
