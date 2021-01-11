@@ -27,11 +27,7 @@ The JavaScript files are in the [js subfolder](https://github.com/hdevilbiss/fre
 
 #### How to contribute to this repository
 
-If you want to contribute for whatever reason, then
-
-1. View this repo on GitHub, then click on the Fork icon to create your own copy.
-2. Make some commits on your copy of the repo.
-3. Make a pull request into my copy of the repo.
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Notes taken while completing the coursework
 
