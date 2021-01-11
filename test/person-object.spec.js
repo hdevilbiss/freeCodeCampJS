@@ -40,4 +40,14 @@ describe('Person class', () => {
   it('getLastName should return "Doe"', () => {
     assert.strictEqual(bob.getLastName(), "Doe");
   });
+  it('getFirstName should return "Taylor Elizabeth" after invoking setFirstName("Taylor Elizabeth")', () => {
+    bob.setFirstName("Taylor Elizabeth");
+    assert.strictEqual(bob.getFirstName(), "Taylor Elizabeth");
+  });
+  it('getLastName should return "Doe" after invoking setFirstName("Taylor Elizabeth")', () => {
+    assert.strictEqual(bob.getLastName(), "Doe");
+  });
+  it('getFullName should return "Taylor Elizabeth Doe" after invoking setFirstName("Taylor Elizabeth")', () => {
+    assert.strictEqual(bob.getFullName(), "Taylor Elizabeth Doe");
+  });
 });
