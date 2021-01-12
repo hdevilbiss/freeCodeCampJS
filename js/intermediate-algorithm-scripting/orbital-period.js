@@ -11,13 +11,13 @@ const orbitalPeriod = (arr) => {
   let GM = 398600.4418;
   let earthRadius = 6367.4447;
   if (Array.isArray(arr)) {
-    return arr.map(obj => {
+    return arr.map(({name, avgAlt}) => {
       let newObj = {};
-      newObj.name = (obj.name)
-        ? obj.name
+      newObj.name = (name)
+        ? name
         : "";
-      newObj.orbitalPeriod = (obj.avgAlt)
-        ? Math.round(2 * Math.PI * Math.sqrt(Math.pow((earthRadius + obj.avgAlt), 3)/GM))
+      newObj.orbitalPeriod = (avgAlt)
+        ? Math.round(2 * Math.PI * Math.sqrt(Math.pow((earthRadius + avgAlt), 3)/GM))
         : 0;
       return newObj;
     });
