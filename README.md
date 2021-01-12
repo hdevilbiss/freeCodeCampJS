@@ -8,22 +8,22 @@ Learn to code with [freeCodeCamp.org](https://freecodecamp.org)
 
 ## Inspired By freeCodeCamp
 
-I created this repo, because I want to track my progress with freeCodeCamp, and because I just plain enjoy writing about code.
+I created this repo, because I want to track my progress while completing the JavaScript freeCodeCamp certificate, and because I just plain enjoy writing about code.
 
-The JavaScript files are in the [js subfolder](https://github.com/hdevilbiss/freeCodeCampJS/tree/master/js).
+### Testing
 
-### Test the JavaScript files using Node
+#### Using Node
 
 1. Be able to use `node` from your code editor's terminal; for example, install Node using [nvm](https://github.com/nvm-sh/nvm).
 1. Run `node <path/to/js/file.js>`. For example, `node js/intermediate-algorithms/wherefore-art-thou.js`.
 1. The console results will display in the terminal.
 
-### Run the unit tests, if applicable
+#### By running the Mocha test suites
 
 1. Clone the repository. `git clone https://github.com/hdevilbiss/freeCodeCampJS`
 1. Move into the new folder. `cd freeCodeCampJS`
 1. Install Node dependencies. `npm i`
-1. Run the unit test (using Mocha). `npm test`.
+1. Run all test suites in `test` folder. `npm test`.
 
 #### How to contribute to this repository
 
@@ -322,7 +322,46 @@ From Mozilla:
 
 Source: [MDN](https://developer.mozilla.org/en-us/docs/web/javascript/reference/global_objects/string/replace)
 
-I think the key point here is this: `String.replace` accepts two arguments. They can either be string literals, or, the first argument can be a regular expression, and the second argument can be a callback function to perform on each match.
+`String.replace` accepts two arguments, and each argument has two options.
+
+The first argument is the value for which to search.
+
+1. A string literal.
+1. A regular expression
+
+The second argument is the value with which to replace the search value.
+
+1. A string literal.
+1. A callback function to perform on each match.
+
+It returns a new string.
+
+```js
+/**
+ * String.replace using only string literals.
+ *
+ * Replace all instances of the string "perch"
+ * with the string "chair".
+ */
+let str1 = "The calico cat sits on a perch and stares out the back door.";
+console.log(str1.replace("perch", "chair"));
+
+/**
+ * String.replace using regex
+ * and special replacement patterns.
+ *
+ * Add dollar signs to the ticket prices.
+ * Then, add a comma to the adult ticket price.
+ */
+let str2 = "The tickets cost 1000 for adults and 540 for up to 3 children.";
+
+let regex1 = /\d+[0]+/g;
+str2 = str2.replace(regex1, "$$$&");
+console.log(str2);
+
+let regex2 = /[0]{3}/g;
+console.log(str2.replace(regex2, ",$&"));
+```
 
 ### parseInt
 
